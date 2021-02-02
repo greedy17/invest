@@ -1,0 +1,14 @@
+.owner{
+    color: white;
+    padding-bottom: 2em;
+}
+.owner-sign{
+    margin-top: 15%;
+    background-color: #276955 !important;
+    color: white !important;
+}
+.create{
+    margin-top: 1em;
+    border-color: white !important;
+    background-color: #276955 !important;
+}

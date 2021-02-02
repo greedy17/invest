@@ -1,21 +1,28 @@
 import React from 'react';
-import {Navbar,Nav} from 'react-bootstrap';
+import {Navbar,Nav,Button} from 'react-bootstrap';
+import greenlogo from '../../assets/images/greenlogo.png'
+import './navBar.css'
 
 const NavBar = () => {
     return(
         <div>
-            <Navbar collapseOnSelect sticky="top" bg="light" variant="light">
-            <Navbar.Brand href="#home">Invest</Navbar.Brand>
+            <Navbar sticky="top" className="navbar-background" variant="light">
+            <Navbar.Brand href="#home">
+            <img
+                src={greenlogo}
+                width="150"
+                height="50"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+            />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#Home">Home</Nav.Link>
-                <Nav.Link href="#About">About</Nav.Link>
                 </Nav>
                 <Nav>
-                <Nav.Link eventKey={2} href="log">
-                    Log in
-                </Nav.Link>
+                <Nav.Link href="sign"><Button className="white" variant="muted">Sign up</Button></Nav.Link>    
+                <Nav.Link href="log"><Button className="green">Log in</Button></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

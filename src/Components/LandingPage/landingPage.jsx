@@ -1,70 +1,25 @@
 import React from 'react';
-import {Jumbotron,Card,Container,Button,Badge} from 'react-bootstrap';
-import './landingPage.css'
+import {Jumbotron,Image,Button,Row,Col} from 'react-bootstrap';
+import './landingPage.css';
+import background from '../../assets/images/background.jpg';
+import plan from '../../assets/images/plan.jpg';
+import budget from '../../assets/images/budget.jpg';
+import present from '../../assets/images/present.jpg';
 
 const LandingPage = () => {
  return(
      <div>
+         <Jumbotron className="hero">
+             <Row>
+                <Col>
+                <div>
+                    
+                </div>
+                </Col>
+             </Row>  
+         </Jumbotron>
 
-     <Jumbotron className="hero center" fluid>
-        <h1 className="welcome">Welcome to invest.</h1>
-        <h3>
-           Turn your plans into profits.
-        </h3>
-    </Jumbotron>  
-
-    <Container className="space">
-    <Card>
-        <Card.Body>
-        <Card.Text className="center">
-            Some quick example text to build on the card title and make up the bulk
-            of the card's content.<Badge variant="success">1</Badge>
-        </Card.Text>
-        </Card.Body>
-        <Card.Img 
-        variant="bottom" 
-        src={require("../../assets/images/cartoon.jpeg")}
-        height={"300"}
-        />
-    </Card>
-    </Container>
-
-    <Container className="space">
-    <Card>
-        <Card.Body>
-        <Card.Text className="center">
-            Some quick example text to build on the card title and make up the bulk
-            of the card's content.<Badge variant="success">2</Badge>
-        </Card.Text>
-        </Card.Body>
-        <Card.Img 
-        variant="bottom" 
-        src={require("../../assets/images/cartoon.jpeg")}
-        height={"300"}
-        />
-    </Card>
-    </Container>
-
-    <Container className="space">
-    <Card>
-        <Card.Body>
-        <Card.Text className="center">
-            Some quick example text to build on the card title and make up the bulk
-            of the card's content.<Badge variant="success">3</Badge>
-        </Card.Text>
-        </Card.Body>
-        <Card.Img 
-        variant="bottom" 
-        src={require("../../assets/images/cartoon.jpeg")}
-        height={"300"}
-        />
-    </Card>
-    </Container>
-
-    <Container className="center space space-bottom">
-        <Button variant="outline-success">Get started!</Button> 
-    </Container>
-
+       
      </div>
  )
 }
