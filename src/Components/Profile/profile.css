@@ -1,0 +1,34 @@
+.profile{
+    margin-left: 20em;
+    margin-right: 20em;
+    height: 20vh;
+    background-color:#276955 !important;
+    color: white;
+}
+.top{
+    display: flex !important;
+    flex-direction: row !important;
+}
+.name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1em;
+}
+.about{
+    margin-left: 20em;
+    margin-right: 20em;
+    margin-top:6em;
+    height: 40vh;
+    background-color: #276955 !important;
+}
+.notifications{
+    margin-left: 1em;
+}
+.toggle{
+    background-color: #276955 !important;
+    border-color: white !important;
+}
+.add{
+    margin-top: 1em;
+}
