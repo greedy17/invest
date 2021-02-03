@@ -1,9 +1,13 @@
-const Product = require('../models/product');
+const {Product, validate} = require('../models/product');
 const express = require('express');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
     try{
+        const {error} = validate(req.body);
+        if (error)
+        return res.status(400).send(error);
+        
         const product = new Product({
             name: req.body.name,
             description: req.body.description,

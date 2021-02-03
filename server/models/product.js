@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const joi = require('joi');
 
 const productSchema = new mongoose.Schema({
     name: {type:String,required:true,minlength:1,maxlength:255},
@@ -11,4 +12,18 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-module.exports = Product;
+function validateProduct(product) {
+    const schema = joi.object({
+        name: joi.string().min(1).max(255).required(),
+        description: joi.string(),
+        category: joi.string(),
+        plan: joi.string(),
+        progress: joi.number(),
+        goal: joi.number(),
+    });
+    return schema.validate(product);
+}
+
+exports.Product = Product;
+exports.validate = validateProduct;
+exports.productSchema = productSchema;
