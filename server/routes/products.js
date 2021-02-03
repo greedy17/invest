@@ -2,12 +2,15 @@ const Product = require('../models/product');
 const express = require('express');
 const router = express.Router();
 
-router.post('/', async (req,res) => {
+router.post('/', async (req, res) => {
     try{
         const product = new Product({
-            name: 'Cool product Number 1',
-            category: "Cool",
-            goal: 5,
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            plan: req.body.plan,
+            progress: req.body.progress,
+            goal: req.body.goal,
         });
 
         await product.save();

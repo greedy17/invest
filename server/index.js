@@ -1,6 +1,6 @@
 const connectDB = require('./startup/db');
 const express = require('express');
-const products = require('./routes/product');
+const products = require('./routes/products');
 const app = express();
 
 connectDB();
