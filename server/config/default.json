@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://invest:python111@investcluster1.bbxii.mongodb.net/invest?retryWrites=true&w=majority"
+}
