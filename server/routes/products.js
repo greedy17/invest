@@ -2,7 +2,7 @@ const {Product, validate} = require('../models/product');
 const express = require('express');
 const router = express.Router();
 
-//GET request'
+//GET request' (read)
 router.get('/', async (req, res)=> {
     try {
         const products = await Product.find();
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-//POST requests'
+//POST requests' (create)
 router.post('/', async (req, res) => {
     try{
         const {error} = validate(req.body);
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-//PUT requests'
+//PUT requests' (update)
 router.put('/:id', async(req, res) => {
     try {
         const {error} = validate(req.body);
@@ -72,6 +72,20 @@ router.put('/:id', async(req, res) => {
         return res.status(400).send(`The product with id "${req.params.id}" does not exist.`);
 
         await product.save();
+
+        return res.send(product);
+    } catch (ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`);
+    }
+});
+
+//DELETE requests'
+router.delete('/:id', async(req, res) => {
+    try {
+        const product = await Product.findByIdAndRemove(req.params.id);
+
+        if(!product)
+        return res.status(400).send(`The product with id "${req.params.id}" does not exist.`);
 
         return res.send(product);
     } catch (ex) {
