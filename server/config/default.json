@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://invest:python111@investcluster1.bbxii.mongodb.net/invest?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://invest:python111@investcluster1.bbxii.mongodb.net/invest?retryWrites=true&w=majority",
+    "jwtSecret": "JWT SECRET HERE INVEST"
 }
