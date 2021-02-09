@@ -3,8 +3,16 @@
 }
 .white{
     color: white !important;
+    font-size: 1.2em !important;
+    transform: all;
+}
+.white:hover{
+    scale: 1.1;
 }
 .green{
     background-color: #276955 !important;
     border-color: white !important;
+}
+.search{
+    border-radius: .5em !important;
 }

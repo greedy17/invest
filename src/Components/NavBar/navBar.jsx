@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar,Nav,Button,Form,FormControl} from 'react-bootstrap';
-import greenlogo from '../../assets/images/greenlogo.png'
+import whiteLogo from '../../assets/images/whiteLogo.png';
 import './navBar.css'
 
 const NavBar = () => {
@@ -9,9 +9,9 @@ const NavBar = () => {
             <Navbar sticky="top" className="navbar-background" variant="light">
             <Navbar.Brand href="#home">
             <img
-                src={greenlogo}
-                width="150"
-                height="50"
+                src={whiteLogo}
+                width="156"
+                height="60"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
             />
@@ -27,7 +27,7 @@ const NavBar = () => {
             </Navbar.Collapse>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button className="green">Search</Button>
+            <Button className="green search">Search</Button>
             </Form>
             </Navbar>
         </div>
