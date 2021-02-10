@@ -10,32 +10,32 @@ const LandingPage = () => {
      <div>
         <Container>
         <Carousel className="slides">
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <img
-                className="d-block w-100"
+                className="d-block w-100 item"
                 src={plan}
                 alt="First slide"
                 />
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <img
-                className="d-block w-100"
+                className="d-block w-100 item"
                 src={budget}
                 alt="Second slide"
                 />
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className="item">
                 <img
-                className="d-block w-100"
+                className="d-block w-100 item"
                 src={present}
                 alt="Third slide"
                 />
             </Carousel.Item>
         </Carousel>
-        </Container>
         <div className="center">
-        <Button className="start">Get started!</Button>
+        <Button href="/signup" className="start">Get started!</Button>
         </div>
+         </Container>
      </div>
  )
 }

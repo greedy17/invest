@@ -1,34 +1,80 @@
 .profile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0 !important;
+    border-radius: 1em !important;
     margin-left: 20em;
     margin-right: 20em;
-    height: 20vh;
-    background-color:#276955 !important;
+    margin-top: 2em;
+    height: 24vh;
+    background-color:#073f2e !important;
     color: white;
 }
 .top{
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column;
+}
+.type{
+    color: #9fecd5;
 }
 .name{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     margin-left: 1em;
 }
 .about{
     margin-left: 20em;
     margin-right: 20em;
-    margin-top:6em;
-    height: 40vh;
-    background-color: #276955 !important;
+    margin-top:4em;
+    height: 52vh;
+    border-radius: 1em !important;
+    background-color: #073f2e !important;
+    overflow-y: scroll;
 }
 .notifications{
     margin-left: 1em;
 }
 .toggle{
-    background-color: #276955 !important;
+    background-color: #073f2e !important;
     border-color: white !important;
 }
 .add{
     margin-top: 1em;
+    background-color: #276955 !important;
+    border-radius: 1em !important;
+    border-color: #276955 !important;
+    transition: all;
+}
+.add:hover{
+    transform: scale(1.1);
+    box-shadow: 1px 5px 20px black;
+}
+.bio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1em;
+}
+.lorem{
+    padding-top: 1em;
+}
+.products{
+    margin-bottom: .5em;
+}
+.card{
+    margin: 1em;
+    box-shadow: 1px 5px 20px black;
+}
+.card-title{
+    color: #073f2e;
+    font-weight: bolder !important;
+}
+.plan-button{
+    background-color: #073f2e !important;
+    border-color: #073f2e !important;
+}
+.plan-button:hover{
+    font-size: 1.04em;
 }

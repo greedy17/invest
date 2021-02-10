@@ -1,15 +1,34 @@
-.are-you{
-    padding-top: 20%;
+.i-am{
+    padding-bottom: 5%;
     color: white;
 }
 .jumbo {
-   width: 50%;
-   background-color: #276955 !important;
+   width: 70%;
+   background-color: #073f2e !important;
    color: white;
+   margin-top: 10em;
+   border-radius: 2em !important;
+   box-shadow: 1px 5px 20px black;
 }
-.continue{
-    margin-top: 2em;
+.continue-button{
+    width: 10em;
+    margin-top: 4em;
     background-color: #276955 !important;
-    border-color: white !important;
-    width: 8em;
+    color: white !important;
+    border-color: #276955 !important;
+    border-radius: 1em !important;
+    transition: all .3s !important;
+}
+.continue-button:hover{
+    transform: scale(1.1);
+    box-shadow: 1px 5px 5px black;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.checkbox-font{
+    font-size: 1.1em;
 }

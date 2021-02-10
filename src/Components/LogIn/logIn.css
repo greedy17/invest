@@ -1,0 +1,30 @@
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-button{
+    width: 10em;
+    margin-top: 1.5em;
+    background-color: #276955 !important;
+    color: color !important;
+    border-color: #276955 !important;
+    border-radius: 1em !important;
+    transition: all .3s !important;
+}
+.login-button:hover{
+    transform: scale(1.03);
+    box-shadow: 1px 5px 5px black;
+}
+.login-form {
+    height: 30em;
+    background-color: #073f2e !important;
+    color: white;
+    margin-top: 10em;
+    padding: .5em;
+    border-radius: 2em;
+    box-shadow: 2px 5px 30px black;
+ }
+ .label-font{
+     font-size: 1.3em;
+ }

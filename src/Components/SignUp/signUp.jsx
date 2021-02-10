@@ -6,27 +6,16 @@ const SignUp = () => {
     return(
         <div>
             <Container className="center">
-                <div className="center are-you"><h2>Select one of the following</h2></div>
-                <Jumbotron className="center jumbo">
-                <Form>
-                <Form.Group as={Row}>
-                <Col sm={10}>
-                    <Form.Check
-                    type="radio"
-                    label="Owner"
-                    name="formHorizontalRadios"
-                    id="formHorizontalRadios1"
-                    />
-                    <br/>
-                    <Form.Check
-                    type="radio"
-                    label="Investor"
-                    name="formHorizontalRadios"
-                    id="formHorizontalRadios2"
-                    />
-                </Col>
-                </Form.Group>
-                <Button className="continue">Continue</Button>
+                <Jumbotron className="jumbo">
+                <div className="center i-am"><h2>I am...</h2></div>
+                <Form className="checkbox-text">
+                <Form.Control as="select" size="lg">
+                    <option>Creating a product</option>
+                    <option>Looking for investment opportunities</option>
+                </Form.Control>
+                <div className="center">
+                    <Button className="continue-button">Continue</Button>
+                </div>
                 </Form>
                 </Jumbotron>
             </Container>

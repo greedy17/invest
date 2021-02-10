@@ -5,15 +5,15 @@ import NavBar from './Components/NavBar/navBar';
 import SignUp from './Components/SignUp/signUp';
 import OwnerSignUp from './Components/SignUp/OwnerSignUp/ownerSignUp';
 import InvestorSignUp from './Components/SignUp/InvestorSignUp/investorSignUp';
-import Profile from './Components/Profile/profile'
+import Profile from './Components/Profile/profile';
+import {BrowserRouter} from 'react-router-dom';
 import './App.css'
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <NavBar/>
-      <LandingPage/>
-    </div>
+    </BrowserRouter>
   );
 }
 
