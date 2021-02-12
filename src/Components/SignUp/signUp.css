@@ -1,12 +1,13 @@
 .i-am{
     padding-bottom: 5%;
     color: white;
+    font-weight: bolder !important;
 }
 .jumbo {
    width: 70%;
    background-color: #073f2e !important;
    color: white;
-   margin-top: 10em;
+   margin-top: 14em;
    border-radius: 2em !important;
    box-shadow: 1px 5px 20px black;
 }
@@ -16,6 +17,7 @@
     background-color: #276955 !important;
     color: white !important;
     border-color: #276955 !important;
+    font-weight: bold !important;
     border-radius: 1em !important;
     transition: all .3s !important;
 }

@@ -1,50 +1,31 @@
 import React from 'react';
 import {Form,Col,Row,Container,Jumbotron,Button} from 'react-bootstrap';
+import './investorSignUp.css'
 
 const InvestorSignUp = () => {
     return(
         <div>
             <Container>
                 <Jumbotron className="owner-sign">
-                <div className="center owner"><h2>Investor</h2></div>
-                <Form>
-                <Form.Group as={Row}>
-                    <Form.Label column sm={2}>
-                    First Name
-                    </Form.Label>
-                    <Col sm={10}>
+                <div className="center owner"><h2>Investor sign up</h2></div>
+                <Form className="owner-form">
+                <Form.Group>
+                    <Col>
                     <Form.Control placeholder="First Name" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row}>
-                    <Form.Label column sm={2}>
-                    Last Name
-                    </Form.Label>
-                    <Col sm={10}>
+                <Form.Group>  
+                    <Col>
                     <Form.Control placeholder="Last Name" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} controlId="formHorizontalEmail">
-                    <Form.Label column sm={2}>
-                    Email
-                    </Form.Label>
-                    <Col sm={10}>
+                <Form.Group controlId="formHorizontalEmail">
+                    <Col >
                     <Form.Control type="email" placeholder="Email" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} controlId="formHorizontalPassword">
-                    <Form.Label column sm={2}>
-                    Password
-                    </Form.Label>
-                    <Col sm={10}>
-                    <Form.Control type="password" placeholder="Password" />
-                    </Col>
-                </Form.Group>
-                <Form.Group as={Row} controlId="formHorizontalPassword">
-                    <Form.Label column sm={2}>
-                    Confirm Password
-                    </Form.Label>
-                    <Col sm={10}>
+                <Form.Group controlId="formHorizontalPassword">
+                    <Col >
                     <Form.Control type="password" placeholder="Password" />
                     </Col>
                 </Form.Group>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Navbar,Nav,Button,Form,FormControl} from 'react-bootstrap';
 import {Link, Route} from 'react-router-dom';
 import whiteLogo from '../../assets/images/whiteLogo.png';
+import BusinessPlanBuilder from '../BusinessPlanBuilder/businessPlanBuilder';
 import LandingPage from '../LandingPage/landingPage';
 import LogIn from '../LogIn/logIn';
 import Profile from '../Profile/profile';
@@ -30,7 +31,7 @@ const NavBar = () => {
                 <Nav>
                     <Nav.Link><Link to="/signup"><Button className="white" variant="muted">Sign up</Button></Link></Nav.Link>    
                     <Nav.Link><Link to="/login"><Button className="white" variant="muted">Log in</Button></Link></Nav.Link>
-                    <Nav.Link><Link to="/profile"><Button className="white" variant="muted">Profile</Button></Link></Nav.Link>
+                    <Nav.Link><Link to="/profile"><Button className="darkgreen" variant="muted">Profile</Button></Link></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             <Form inline>
@@ -38,12 +39,11 @@ const NavBar = () => {
             <Button className="green search">Search</Button>
             </Form>
             </Navbar>
-
             <div>
                 <Route path="/" exact component={LandingPage}/>
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/login" component={LogIn}/>
-                <Route path="/profile" component={Profile}/>
+                <Route path="/profile" component={BusinessPlanBuilder}/>
             </div>
         </div>
     )

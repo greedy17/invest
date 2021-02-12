@@ -45,6 +45,7 @@
     background-color: #276955 !important;
     border-radius: 1em !important;
     border-color: #276955 !important;
+    font-weight: bold !important;
     transition: all;
 }
 .add:hover{
@@ -69,7 +70,7 @@
 }
 .card-title{
     color: #073f2e;
-    font-weight: bolder !important;
+    font-weight: bold !important;
 }
 .plan-button{
     background-color: #073f2e !important;

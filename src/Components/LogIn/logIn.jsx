@@ -30,7 +30,7 @@ const LogIn = () => {
                     <Button className="login-button" type="submit">Log in</Button>
                 </div>
                 </Form>
-                </Container>
+            </Container>
         </div>
     )
 }

@@ -1,0 +1,24 @@
+.business-plan{
+    background-color: transparent !important;
+    color: white;
+}
+.title{
+    color: #9fecd5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    padding-bottom: 1em;
+}
+.plan-title{
+    font-weight: 900;
+    color: #9fecd5;
+}
+.body{
+    font-weight: 900;
+}
+.intro{
+    background-color: #073f2e;
+    border-radius: 2em;
+    padding: 4em !important;
+}

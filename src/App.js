@@ -8,6 +8,7 @@ import InvestorSignUp from './Components/SignUp/InvestorSignUp/investorSignUp';
 import Profile from './Components/Profile/profile';
 import {BrowserRouter} from 'react-router-dom';
 import './App.css'
+import BusinessPlanBuilder from './Components/BusinessPlanBuilder/businessPlanBuilder';
 
 function App() {
   return (

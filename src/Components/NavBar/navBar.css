@@ -1,9 +1,19 @@
 .navbar-background{
-    background-color: transparent;
+    background-color: #073f2e;
+}
+.darkgreen{
+    color: #276955 !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    transform: all;
+}
+.darkgreen:hover{
+    scale: 1.1;
 }
 .white{
     color: white !important;
     font-size: 1.2em !important;
+    font-weight: bold !important;
     transform: all;
 }
 .white:hover{
@@ -15,4 +25,8 @@
 }
 .search{
     border-radius: .5em !important;
+    font-weight: bold !important;
+}
+.search:hover{
+    background-color: darkslategrey !important;
 }
