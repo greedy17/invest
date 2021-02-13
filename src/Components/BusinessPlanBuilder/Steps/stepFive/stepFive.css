@@ -1,7 +1,16 @@
-.next,.prev{
+.five{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: start;
+}
+.right{
+    margin-right: 30%;
+}
+.add-product{
     background-color: #276955 !important;
     border-color: #276955 !important;
     color: white !important;
     font-weight: bolder !important;
     border-radius: .4em !important;
+    width: 14em;
 }

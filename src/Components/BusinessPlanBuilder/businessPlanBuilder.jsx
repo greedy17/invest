@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
-import {Jumbotron,Image} from 'react-bootstrap';
-import whitelogo from '../../assets/images/whiteLogo.png';
+import Introduction from './Steps/Introduction/introduction';
+import {Form} from 'react-bootstrap';
+import StepOne from './Steps/stepOne/stepOne';
+import StepTwo from './Steps/stepTwo/stepTwo';
+import StepThree from './Steps/stepThree/stepThree';
+import StepFour from './Steps/stepFour/stepFour';
+import StepFive from './Steps/stepFive/stepFive';
 import './businessPlanBuilder.css';
 
 class BusinessPlanBuilder extends Component {
     constructor(props) {
       super(props)
-
       this.state = {
-        //executive summary
         currentStep: 0,
+        //executive summary
         product: '',
         customers: '',
         vision: '',
@@ -30,12 +34,16 @@ class BusinessPlanBuilder extends Component {
         communication: '',
         howWillYouSale: '',
       }
-  
+      
+      this._next = this._next.bind(this)
+      this._prev = this._prev.bind(this)
       this.handleChange = this.handleChange.bind(this)
     }
   
     handleChange(event) {
-      const {name, value} = event.target
+      const target = event.target;
+      const value = target.value;
+      const name = target.name;
       this.setState({
         [name]: value
       }) 
@@ -46,43 +54,67 @@ class BusinessPlanBuilder extends Component {
       const { product } = this.state
       alert(`Your product (${product}), has been added to your profile! Congrats!!`)
     }
+
+    _next() {
+        let currentStep = this.state.currentStep
+        currentStep = currentStep >= 1? currentStep +1: currentStep + 1
+        this.setState({
+          currentStep: currentStep
+        })
+      }
+    
+      _prev() {
+        let currentStep = this.state.currentStep
+        currentStep = currentStep <= 0? 1: currentStep - 1
+        this.setState({
+          currentStep: currentStep
+        })
+      }
+
+      get previousButton(){
+        let currentStep = this.state.currentStep;
+        if(currentStep !== 0){
+          return (
+            <button 
+            className="btn prev" 
+            type="button" 
+            onClick={this._prev}>
+                Previous
+            </button>
+          )
+        }
+        return null;
+      }
+      
+      get nextButton(){
+        let currentStep = this.state.currentStep;
+        if(currentStep < 5){
+          return (
+            <button 
+            className="btn next" 
+            type="button" 
+            onClick={this._next}>
+              Next
+            </button> 
+          )
+        }
+        return null;
+      }
   
     render(){
         return(
-            <div>
-                <Jumbotron className="business-plan container">
-                    <div className="center">
-                        <Image src={whitelogo} height={80}></Image>
-                    </div>
-    
-                    <h1 className="title">Turning your products into profit.</h1>
-    
-                    <div className="intro">
-                        <h3 className="plan-title">Creating a business Plan.</h3>
-                        <h5 className="body">A good business plan will guide you through every stage of starting and 
-                        managing your business. You can think of it as a "roadmap." This map will get you
-                        to your destination as long as you follow it closely. Your business plan should
-                        dictate how you run your business, and include ways to help you grow it. 
-                        Carefully think through every element of your business, put your thoughts in your plan
-                        and reference them often. If you want funding for your products you'll need a solid plan. 
-                        Make the investor believe in you and your abilities to turn your product into profits. "Your
-                        business plan is the tool you’ll use to convince people that working with you — or 
-                        investing in your company — is a smart choice." -SBA
-                        </h5>
-                        <br></br>
-                        <h5 className="body">
-                            We understand that creating a business plan can be a daunting task. Thats why we've created 
-                            a template to help get your started. Our guide is broken down into 10 sections and easy to follow. Lets begin!
-                        </h5>
-                    </div>
-    
-                </Jumbotron>
-            </div>
+            <React.Fragment>
+                <Form onSubmit={this.handleSubmit}>
+                <Introduction next={this.nextButton} currentStep={this.state.currentStep}></Introduction>
+                <StepOne prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} product={this.state.product} customers={this.state.customers} vision={this.state.vision}></StepOne>
+                <StepTwo prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} missionStatement={this.state.missionStatement} principalMembers={this.state.principalMembers} primaryLocation={this.state.primaryLocation}></StepTwo>
+                <StepThree prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} industry={this.state.industry} customerDescription={this.state.customerDescription} companyAdvantages={this.state.companyAdvantages}></StepThree>
+                <StepFour prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange}  serviceOrProduct={this.state.serviceOrProduct} pricing={this.state.pricing} research={this.state.research}></StepFour>
+                <StepFive prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} growthStrategy={this.state.growthStrategy}communication={this.state.communication} howWillYouSale={this.state.howWillYouSale}></StepFive>
+                </Form>
+            </React.Fragment>
         )
     }
   }
-
-
-
 
 export default BusinessPlanBuilder;
