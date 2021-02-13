@@ -2,7 +2,6 @@ const {Product, validate} = require('../models/product');
 const express = require('express');
 const router = express.Router();
 
-//GET request' (read)
 router.get('/', async (req, res)=> {
     try {
         const products = await Product.find();
@@ -12,7 +11,6 @@ router.get('/', async (req, res)=> {
     }
 });
 
-//by Id
 router.get('/:id', async (req, res) => {
     try{
         const product = await Product.findById(req.params.id);
@@ -25,7 +23,6 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-//POST requests' (create)
 router.post('/', async (req, res) => {
     try{
         const {error} = validate(req.body);
@@ -49,7 +46,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-//PUT requests' (update)
 router.put('/:id', async(req, res) => {
     try {
         const {error} = validate(req.body);
@@ -79,7 +75,6 @@ router.put('/:id', async(req, res) => {
     }
 });
 
-//DELETE requests'
 router.delete('/:id', async(req, res) => {
     try {
         const product = await Product.findByIdAndRemove(req.params.id);

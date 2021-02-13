@@ -1,16 +1,19 @@
 const connectDB = require('./startup/db');
 const express = require('express');
+const verifyToken = require('./middleware/auth');
 const products = require('./routes/products');
-const users = require('./routes/users');
-const auth = require('./routes/auth');
+const authRoutes = require('./routes/auth');
+const login = require('./routes/login');
+const profileRoutes = require('./routes/profile');
 const app = express();
 
 connectDB();
 
 app.use(express.json());
 app.use('/api/products', products);
-app.use('/api/users', users);
-app.use('/api/auth', auth);
+app.use('/api/user', authRoutes);
+app.use('/api/user', login)
+app.use('/api/profile', verifyToken, profileRoutes)
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
