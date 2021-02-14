@@ -1,6 +1,7 @@
 const connectDB = require('./startup/db');
+const cors = require('cors')
 const express = require('express');
-const verifyToken = require('./middleware/auth');
+const verifyToken = require('./middleware/verifyToken');
 const products = require('./routes/products');
 const authRoutes = require('./routes/auth');
 const login = require('./routes/login');
@@ -10,6 +11,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
+app.use(cors());
 app.use('/api/products', products);
 app.use('/api/user', authRoutes);
 app.use('/api/user', login)

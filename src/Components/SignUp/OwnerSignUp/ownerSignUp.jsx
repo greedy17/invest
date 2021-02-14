@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Col,Row,Container,Jumbotron,Button} from 'react-bootstrap';
+import {Form,Col,Container,Jumbotron,Button} from 'react-bootstrap';
 import './ownerSignUp.css'
 
 const OwnerSignUp = () => {
@@ -11,12 +11,7 @@ const OwnerSignUp = () => {
                 <Form className="owner-form">
                 <Form.Group>
                     <Col>
-                    <Form.Control placeholder="First Name" />
-                    </Col>
-                </Form.Group>
-                <Form.Group>  
-                    <Col>
-                    <Form.Control placeholder="Last Name" />
+                    <Form.Control placeholder="First and last name" />
                     </Col>
                 </Form.Group>
                 <Form.Group controlId="formHorizontalEmail">

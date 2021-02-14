@@ -1,7 +1,7 @@
 .five{
     display: flex !important;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .right{
     margin-right: 30%;

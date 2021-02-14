@@ -11,12 +11,7 @@ const InvestorSignUp = () => {
                 <Form className="owner-form">
                 <Form.Group>
                     <Col>
-                    <Form.Control placeholder="First Name" />
-                    </Col>
-                </Form.Group>
-                <Form.Group>  
-                    <Col>
-                    <Form.Control placeholder="Last Name" />
+                    <Form.Control placeholder="First and last name" />
                     </Col>
                 </Form.Group>
                 <Form.Group controlId="formHorizontalEmail">
