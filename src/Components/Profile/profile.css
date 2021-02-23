@@ -6,7 +6,7 @@
     border-radius: 1em !important;
     margin-left: 20em;
     margin-right: 20em;
-    margin-top: 2em;
+    margin-top: 3em;
     height: 24vh;
     background-color:#073f2e !important;
     color: white;
@@ -78,4 +78,7 @@
 }
 .plan-button:hover{
     font-size: 1.04em;
+}
+.link{
+    color: white !important;
 }

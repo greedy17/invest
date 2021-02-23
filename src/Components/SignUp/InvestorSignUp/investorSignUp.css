@@ -1,11 +1,11 @@
-.owner{
+.investor{
     color:#9fecd5;
     font-weight: bolder !important;
     padding-bottom: 2em;
 }
-.owner-sign{
+.investor-sign{
     margin-top: 15%;
-    background-color: #276955 !important;
+    background-color:#073f2e !important;
     border-radius: 2em !important;
     color: white !important;
     display: flex;
@@ -14,14 +14,14 @@
     flex-direction: column;
     width: 64em;
 }
-.owner-form{
+.investor-form{
     width: 34em;
 }
 .create{
     margin-top: 1em;
-    border-color: #073f2e !important;
+    border-color:#276955 !important;
     border-radius: 1em !important;
-    background-color: #073f2e !important;
+    background-color:#276955 !important;
     transition: all;
 }
 

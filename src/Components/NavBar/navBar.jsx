@@ -1,15 +1,24 @@
 import React from 'react';
-import {Navbar,Nav,Button,Form,FormControl} from 'react-bootstrap';
-import {Link, Route} from 'react-router-dom';
+import {Navbar,Nav,Button,Badge} from 'react-bootstrap';
+import {FaHome} from 'react-icons/fa';
+import {Link,withRouter} from 'react-router-dom';
 import whiteLogo from '../../assets/images/whiteLogo.png';
-import BusinessPlanBuilder from '../BusinessPlanBuilder/businessPlanBuilder';
-import LandingPage from '../LandingPage/landingPage';
-import LogIn from '../LogIn/logIn';
-import Profile from '../Profile/profile';
-import SignUp from '../SignUp/signUp';
-import './navBar.css'
+import './navBar.css';
 
-const NavBar = () => {
+const NavBar = props => {
+
+    const handleSignOut = () => {
+      if(props.loggedInStatus === "LOGGED_IN"){
+        localStorage.clear('jwtToken');
+        props.handleSuccessfulLogout();
+        props.history.push('/');
+      }else{
+        console.log("error logging out")
+      } 
+    };
+
+    console.log(props.loggedInStatus);
+
     return(
         <div>
             <Navbar sticky="top" className="navbar-background" variant="light">
@@ -17,8 +26,8 @@ const NavBar = () => {
             <Link to="/">   
             <img
                 src={whiteLogo}
-                width="156"
-                height="60"
+                width="140"
+                height="55"
                 className="d-inline-block align-top"
                 alt="invest logo"
             />
@@ -29,24 +38,36 @@ const NavBar = () => {
                 <Nav>
                 </Nav>
                 <Nav>
-                    <Nav.Link><Link to="/signup"><Button className="white" variant="muted">Sign up</Button></Link></Nav.Link>    
-                    <Nav.Link><Link to="/login"><Button className="white" variant="muted">Log in</Button></Link></Nav.Link>
-                    <Nav.Link><Link to="/profile"><Button className="darkgreen" variant="muted">Profile</Button></Link></Nav.Link>
+                    {props.loggedInStatus === "NOT_LOGGED_IN" ? (
+                    <Nav.Link><Link to="/investors"><Button className="white" variant="muted">investors</Button></Link></Nav.Link>
+                    ): null}
+                    <Nav.Link><Link to='/' className="home-icon"><FaHome/></Link></Nav.Link>
+                    {props.loggedInStatus === "NOT_LOGGED_IN" ? (
+                    <Nav.Link><Link to="/about"><Button className="white" variant="muted">About</Button></Link></Nav.Link>
+                    ): null}
+                    {props.loggedInStatus === "NOT_LOGGED_IN" ? (
+                    <Nav.Link><Link to="/signup"><Button className="white" variant="muted">Sign up</Button></Link></Nav.Link>
+                    ): null}
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Link to="/profile"><Button className="white" variant="muted">Profile</Button></Link></Nav.Link>
+                    ): null}
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Link to="/display"><Button className="white" variant="muted">Products/investors</Button></Link></Nav.Link>
+                    ): null}
                 </Nav>
             </Navbar.Collapse>
-            <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button className="green search">Search</Button>
-            </Form>
+                {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Link to="/messenger"><Button className="white" variant="muted">Messenger <Badge variant="light">0</Badge></Button></Link></Nav.Link>
+                    ): null}
+                {props.loggedInStatus === "NOT_LOGGED_IN" ? (
+                   <Nav.Link><Link to="/login"><Button className="lightgreen" variant="muted">Log in</Button></Link></Nav.Link>
+                    ): null}
+                {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Button className="lightgreen" variant="muted"  onClick={handleSignOut}>Log Out</Button></Nav.Link>
+                    ): null}
             </Navbar>
-            <div>
-                <Route path="/" exact component={LandingPage}/>
-                <Route path="/signup" component={SignUp}/>
-                <Route path="/login" component={LogIn}/>
-                <Route path="/profile" component={BusinessPlanBuilder}/>
-            </div>
         </div>
     )
-}
+  }  
 
-export default NavBar;
+export default withRouter(NavBar);

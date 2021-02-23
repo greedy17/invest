@@ -1,35 +1,35 @@
-const {User, validateUser} = require('../models/user');
+const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const express = require('express');
+const {User} = require('../models/user');
 const router = express.Router();
 
-router.post('/register', async(req, res) => {
+router.post('/', async(req,res) => {
     try{
-        const {error} = validateUser(req.body);
-
-        if(error) return res.status(400).send(error.details[0].message);
-
+        const {error} = validateLogin(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+        
         let user = await User.findOne({email: req.body.email});
-        if(user) return res.status(400).send('User already registered.');
+        if(!user) return res.status(400).send('Invalid email or password');
 
-        const salt = await bcrypt.genSalt(10);
-        user = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: await bcrypt.hash(req.body.password, salt),
-        });
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
 
-        await user.save();
-
+        if(!validPassword) return res.statusCode(400).send('Invalid email or password' )
+        
         const token = user.generateAuthToken();
-
-        return res
-        .header('x-auth-token', token)
-        .header('access-control-expose-headers', 'x-auth-token')
-        .send({_id: user._id, name: user.name, email: user.email});
-    } catch(ex) {
+        
+        return res.send(token);
+    } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
+
+function validateLogin(req) {
+    const schema = Joi.object({
+        email: Joi.string().min(5).max(255).required().email(),
+        password: Joi.string().min(5).max(500).required(),
+    });
+    return schema.validate(req);
+}
 
 module.exports = router;

@@ -50,9 +50,8 @@ class BusinessPlanBuilder extends Component {
     }
   
     handleSubmit = (event) => {
-      event.preventDefault()
-      const { product } = this.state
-      alert(`Your product (${product}), has been added to your profile! Congrats!!`)
+      event.preventDefault();
+      alert('Your product has been added to your profile! Congrats!!')
     }
 
     _next() {

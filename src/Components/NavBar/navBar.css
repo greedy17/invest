@@ -3,25 +3,28 @@
 }
 .darkgreen{
     color: #276955 !important;
-    font-size: 1.2em !important;
+    font-size: 1.3em !important;
     font-weight: bold !important;
     transform: all;
 }
-.darkgreen:hover{
-    scale: 1.1;
+.lightgreen{
+    color: #9fecd5 !important;
+    font-size: 1.3em !important;
+    font-weight: bold !important;
+    transform: all;
 }
 .white{
     color: white !important;
-    font-size: 1.2em !important;
+    font-size: 1.3em !important;
     font-weight: bold !important;
     transform: all;
 }
-.white:hover{
+.white:hover, .darkgreen:hover, .lightgreen:hover{
     scale: 1.1;
 }
 .green{
     background-color: #276955 !important;
-    border-color: white !important;
+    border-color: #276955 !important;
 }
 .search{
     border-radius: .5em !important;
@@ -29,4 +32,12 @@
 }
 .search:hover{
     background-color: darkslategrey !important;
+}
+.home-icon{
+    margin-top: 2em !important;
+    margin-right: .7em;
+    margin-left: .5em;
+    color: #276955!important;
+    font-size: 1.6em;
+    transform: all;
 }

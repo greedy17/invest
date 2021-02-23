@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button,Container,Carousel} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './landingPage.css';
 import plan from '../../assets/images/plan.jpeg';
 import budget from '../../assets/images/budget.jpeg';
@@ -33,7 +34,7 @@ const LandingPage = () => {
                 </Carousel.Item>
             </Carousel>
             <div className="center">
-                <Button href="/signup" className="start">Get started!</Button>
+                <Button className="start"><Link className="link-color" to="/signup">Get Started!</Link></Button>
             </div>
          </Container>
      </div>

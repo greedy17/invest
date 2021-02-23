@@ -3,4 +3,27 @@
     left:0;
     bottom:0;
     right:0;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 14.5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.connect{
+    color: #097756;
+    padding-top: 1em;
+    font-weight: bold;
+}
+.copy{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 1.9em;
+    font-size: .7em;
+}
+.foot-icons{
+    margin-left: 1em;
+}
+.icons{
+    font-size: 1.52em;
 }

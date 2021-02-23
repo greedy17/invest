@@ -27,3 +27,6 @@
     transform: scale(1.06);
     box-shadow: 1px 5px 5px black;
 }
+.link-color{
+    color: white !important;
+}

@@ -1,0 +1,18 @@
+.error404{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #073f2e !important;
+    color: white;
+    border-radius: 2em !important;
+    box-shadow: 1px 5px 20px black;
+    margin-top: 10em;
+}
+.not-found-title{
+    font-weight: bolder;
+}
+.head-home{
+    color: #9fecd5 !important;
+    font-weight: bold;
+}

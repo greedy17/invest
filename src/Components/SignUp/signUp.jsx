@@ -3,6 +3,7 @@ import {Form,Container,Jumbotron,Button} from 'react-bootstrap';
 import './signUp.css';
 import OwnerSignUp from './OwnerSignUp/ownerSignUp';
 import InvestorSignUp from './InvestorSignUp/investorSignUp';
+import Error404 from '../Error404/error404';
 
 class SignUp extends React.Component {
     constructor(props){
@@ -18,11 +19,11 @@ class SignUp extends React.Component {
     this.setState({type: this.element.value})
     console.log(this.state.type)
   }
-  
+
   render (){
       switch (this.state.type){
       case "select": 
-        return (<React.Fragment><Form onSubmit={this.handleSubmit}>          
+        return (<React.Fragment><Form onSubmit={this.handleSubmit}>         
                  <Container className="center">
                     <Jumbotron className="jumbo">
                     <div className="center i-am"><h2>I am...</h2></div>
@@ -37,12 +38,14 @@ class SignUp extends React.Component {
                 </Container>    
                 </Form></React.Fragment>);
       case "Creating a product":
-        return (<React.Fragment><Form><OwnerSignUp/></Form></React.Fragment>);
+        return( 
+          <OwnerSignUp/>);
       case "Looking for investment opportunities":
-        return (<React.Fragment><Form><InvestorSignUp/></Form></React.Fragment>)  
-      default: <div><h1>Page not found</h1></div>
+        return (
+          <InvestorSignUp/>);  
+      default: <div><Error404/></div>
     }
-  }
+  } 
 }
 
 export default SignUp;
