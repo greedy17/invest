@@ -1,0 +1,32 @@
+.bold{
+    font-weight: bolder !important;
+}
+.color-white{
+    color: white;
+}
+.search-display{
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.display-list{
+    background-color: #073f2e !important;
+    margin-left: 1em;
+    margin-right: 1em !important;
+    height: 38em !important;
+    overflow-y: scroll;
+    color: white;
+}
+.display-card{
+    background-color: #276955 !important;
+    color: white;
+}
+.role-color{
+    color: #9fecd5 !important;
+}
+.space{
+    margin-right: 1em;
+    border-color: white !important;
+}
+.space:hover{
+    background-color: white !important;
+    color: #276955 !important;
+}

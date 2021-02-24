@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true, maxlength:100, minlength:6},
     role: {type: String},
     products: {type: [productSchema], default: []},
-    bio: {type: String, default: "no bio just yet"},
+    bio: {type: String, default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices turpis at dolor fermentum venenatis. Integer efficitur vulputate felis, nec hendrerit lectus faucibus a. Nam eu arcu vel massa condimentum posuere. Integer varius, lectus id ultricies fringilla, lorem elit egestas erat, et suscipit sem massa eu felis. Vestibulum hendrerit, odio a vestibulum aliquam, nisl lorem lobortis lacus, non fringilla diam metus ac nulla."},
     date: {type: Date, default: Date.now},
 })
 

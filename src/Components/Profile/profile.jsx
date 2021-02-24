@@ -4,6 +4,7 @@ import {Jumbotron,Image,Dropdown,Badge,Card,CardGroup,Button,Container} from 're
 import placeholder from '../../assets/images/placeholder.jpeg';
 import './profile.css';
 import {Link} from 'react-router-dom';
+import useForm from '../UseForm/useForm';
 import axios from 'axios';
 
 
@@ -25,10 +26,34 @@ const Profile = props => {
         }
     }
 
-
     useEffect(() => {
         getUserInfo();
     },);
+
+///////////////////////////////////////////////////////////////////////////////
+    const  updateUser = (e) => {
+
+        var decoded = jwt_decode(token);
+        const updatedUrl = userApi + decoded._id;
+
+        const updatedUser = {
+            name: userInfo.name,
+            email: userInfo.email,
+            password: userInfo.password,
+            bio: userInfo.bio,
+            role: userInfo.role,
+            products: values.products
+        }
+
+        axios.post(updatedUrl, updatedUser)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => console.log(err));
+
+    }
+
+    const { values, handleSubmit, handleChange } = useForm(updateUser);
     
         return(
             <div>
@@ -58,47 +83,15 @@ const Profile = props => {
     
                 <Jumbotron className="about">
                 <div className="center">
-                    <h1 className="type products">Products</h1>
+                    <h1 className="type products">My products</h1>
                 </div>
                 <Container>
-                    <CardGroup>
-                    <Card className="card">
-                        <Card.Body>
-                        <Card.Title className="card-title">Tech</Card.Title>
-                        <Card.Text>
-                        All about my product. All about my product. All about my product. All about my product.
-                        </Card.Text>
-                        </Card.Body>
-                        <Button className="plan-button">View plan</Button>
-                        <Card.Footer>
-                        <small className="text-muted">added 2/9/2021</small>
-                        </Card.Footer>
-                    </Card>
-                        <Card className="card">
-                            <Card.Body>
-                            <Card.Title className="card-title">Beauty</Card.Title>
-                            <Card.Text>
-                            All about my product. All about my product. All about my product. All about my product.
-                            </Card.Text>
-                            </Card.Body>
-                            <Button className="plan-button">View plan</Button>
-                            <Card.Footer>
-                            <small className="text-muted">added 2/9/2021</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card className="card">
-                            <Card.Body>
-                            <Card.Title className="card-title">Fashion</Card.Title>
-                            <Card.Text>
-                            All about my product. All about my product. All about my product. All about my product.
-                            </Card.Text>
-                            </Card.Body>
-                            <Button className="plan-button">View plan</Button>
-                            <Card.Footer>
-                            <small className="text-muted">added 2/9/2021</small>
-                            </Card.Footer>
-                        </Card>
-                    </CardGroup>
+                    {userInfo.products.length === 0 ? (
+                        <div
+                            className="center link">No products, no problem. Use the form below to create one!
+                        </div>
+                        
+                    ): null}
                 </Container>     
                 <div className="center">
                 <Button className="add"><Link className="link" to='/businessPlan'>Add product</Link></Button>

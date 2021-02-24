@@ -20,7 +20,7 @@
     transform: all;
 }
 .white:hover, .darkgreen:hover, .lightgreen:hover{
-    scale: 1.1;
+    scale: 1.04;
 }
 .green{
     background-color: #276955 !important;
@@ -40,4 +40,12 @@
     color: #276955!important;
     font-size: 1.6em;
     transform: all;
+}
+.welcome-user{
+    color: #276955 !important;
+    font-weight: bolder !important;
+    font-size: 1.5em;
+}
+.welcome-user:hover{
+    cursor: default;
 }

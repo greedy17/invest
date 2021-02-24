@@ -6,12 +6,13 @@ import SignUp from './Components/SignUp/signUp';
 import About from './Components/About/about';
 import Profile from './Components/Profile/profile';
 import BusinessPlanBuilder from './Components/BusinessPlanBuilder/businessPlanBuilder';
-import Display from './Components/Display/display';
 import MyNetwork from './Components/MyNetwork/myNetwork';
 import Error404 from './Components/Error404/error404';
 import Login from './Components/LogIn/logIn';
-import './App.css';
 import Investors from './Components/Investors/investors';
+import Products from './Components/Products/products';
+import './App.css';
+
 
 
   const App = () => {
@@ -54,9 +55,9 @@ import Investors from './Components/Investors/investors';
       <Route path='/about' component={About}></Route>
       {loggedInStatus === "LOGGED_IN" ? (authorizedPages()) : null}
       <Route path='/businessPlan' component={BusinessPlanBuilder}></Route>
-      <Route path='/display' component={Display}></Route>
       <Route path='/messenger' component={MyNetwork}></Route>
       <Route path='/investors' component={Investors}></Route>
+      <Route path='/products' component={Products}></Route>
       <Route path='*' component={Error404}></Route>
       </Switch>
     </BrowserRouter>  

@@ -1,32 +1,37 @@
-import React, {useState} from 'react';
-import {Card,Button,Badge} from 'react-bootstrap';
+import React, {useState,useEffect} from 'react';
+import SearchBar from './SearchBar/searchBar';
+import InvestorList from './InvestorList/investorList';
+import './investors.css'
 import axios from 'axios';
 
 const Investors = props => {
-    var [investors, setInvestors] = useState([])
+    const [input,setInput] = useState('');
+    const [investorList, setInvestorList] = useState([])
+    const [investorListDefault, setInvestorListDefault] = useState();
     const usersApi = "http://localhost:5000/api/user/users/";
 
-    axios.get(usersApi)
-    .then(res => {
-        setInvestors(res.data);
-    })
+    const getInvestors = async () => {
+        axios.get(usersApi)
+        .then(res => {
+            setInvestorList(res.data);
+            setInvestorListDefault(res.data);
+        });
+    }
+    
+        const updateInput = async (input) => {
+            const filtered = investorListDefault.filter(product => {
+             return product.name.toLowerCase().includes(input.toLowerCase())
+            })
+            setInput(input);
+            setInvestorList(filtered);
+         }
+    
+        useEffect( ()=> {getInvestors()},[])
 
     return(
         <div>
-            {
-            investors.map( investor =>
-            investor.role === "investor" ?  
-            (<Card className="display-card">
-                <Card.Header as="h5">{investor.name} <span className="role-color">({investor.role})</span></Card.Header>
-                <Card.Body>
-                    <Card.Title>Has invested in <Badge variant="light">0</Badge> products on invest.</Card.Title>
-                        <Card.Text>
-                        Typically invests' in (most invested category).
-                        </Card.Text>
-                    <Button className="green space">investments</Button><Button variant="outline-warning">Msg</Button>
-                </Card.Body>
-            </Card>): null
-            )}
+          <SearchBar input={input} onChange={updateInput}/>
+          <InvestorList investorList={investorList}/>
         </div>
     )
 }
