@@ -1,0 +1,100 @@
+.main-page{
+    background: white !important;
+    display: grid;
+    grid-template-columns: 10%,10%,10%,10%,10%,10%,10%,10%,10%,10%;
+    grid-template-rows: 20%,20%,20%,20%,20%,20%;
+}
+.articles{
+    background-color:transparent!important;
+    height: 247vh;
+    overflow-y: hidden;
+}
+.article-card{
+    color: white;
+    margin-top: 1.2em;
+    border-radius: .1em !important;
+    font-weight: bold;
+    background-color: #073f2e !important;
+}
+.featured-card{
+    color: white;
+    height: 30em;
+    border-radius: .1em !important;
+    font-weight: bold;
+    background-color: #073f2e !important;
+}
+.article-button{
+    background-color: #073f2e !important;
+    border-color: white !important;
+    border-radius: .3em !important;
+}
+.featured-button{
+    background-color: #073f2e !important;
+    border-color: white !important;
+    border-radius: .3em !important;
+    margin-top: 10em;
+}
+.article-button:hover{
+    background-color: white !important;
+    border-color: #073f2e !important;
+    color: #073f2e !important;
+    border-radius: .3em !important;
+}
+.featured-button:hover{
+    background-color: white !important;
+    border-color: #073f2e !important;
+    color: #073f2e !important;
+    border-radius: .3em !important;
+}
+.featured-title{
+    color: #9fecd5;
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+.featured-title2{
+    color: white;
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+.news-section{
+    grid-row: 2;
+    grid-column: 1;
+}
+.featured{
+    text-align: center;
+    grid-column: 1/10;
+    grid-row: 1;
+    background: transparent !important;
+    margin-right: 1em;
+}
+.trending{
+    grid-row: 2;
+    grid-column: 2/10;
+    background: transparent !important;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.main-footer{
+    grid-column: 1/9;
+    width: 99.4vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.spacer{
+    height: 4em;
+}
+.story-titles{
+    color: #276955;
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+.story-date{
+    color: #9fecd5;
+}
+.news-title{
+    color: #276955;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 2.25em;
+}

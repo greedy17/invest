@@ -3,7 +3,7 @@ import {Jumbotron,Form,ProgressBar} from 'react-bootstrap';
 import './stepThree.css'
 
 const StepThree = (props) => {
-    if (props.currentStep !== 3) {
+    if (props.currentStep !== 4) {
       return null
     }else{
       return(

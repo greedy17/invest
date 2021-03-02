@@ -32,7 +32,7 @@ const LogIn = (props) => {
   
             setAuthToken(token);
             props.handleSuccessfulLogin();
-            props.history.push("/profile");
+            props.history.push("/news");
         })
         .catch(err => {
             console.log(err);

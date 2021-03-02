@@ -19,7 +19,7 @@ const InvestorSignUp = (props) => {
             bio: values.bio,
             role: 'investor',
         }
-
+        
         axios.post(url, newUser)
         .then(res => {
             props.history.push('/login');

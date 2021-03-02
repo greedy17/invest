@@ -33,7 +33,9 @@ const Products = props => {
     return(
         <div>
           <SearchBar input={input} onChange={updateInput}/>
-          <ProductList productList={productList}/>
+          <div className="scroll-box">
+            <ProductList productList={productList}/>
+          </div>
         </div>
     )
 }

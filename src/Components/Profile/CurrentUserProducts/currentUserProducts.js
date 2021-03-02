@@ -4,7 +4,7 @@ import {CardGroup,Card,Button,} from 'react-bootstrap';
 const CurrentUserProduct = props => {
     return(
         <CardGroup>
-                    <Card className="card">
+                    <Card className="product-card">
                         <Card.Body>
                         <Card.Title className="card-title">Tech</Card.Title>
                         <Card.Text>
@@ -16,30 +16,30 @@ const CurrentUserProduct = props => {
                         <small className="text-muted">added 2/9/2021</small>
                         </Card.Footer>
                     </Card>
-                        <Card className="card">
-                            <Card.Body>
-                            <Card.Title className="card-title">Beauty</Card.Title>
-                            <Card.Text>
-                            All about my product. All about my product. All about my product. All about my product.
-                            </Card.Text>
-                            </Card.Body>
-                            <Button className="plan-button">View plan</Button>
-                            <Card.Footer>
-                            <small className="text-muted">added 2/9/2021</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card className="card">
-                            <Card.Body>
-                            <Card.Title className="card-title">Fashion</Card.Title>
-                            <Card.Text>
-                            All about my product. All about my product. All about my product. All about my product.
-                            </Card.Text>
-                            </Card.Body>
-                            <Button className="plan-button">View plan</Button>
-                            <Card.Footer>
-                            <small className="text-muted">added 2/9/2021</small>
-                            </Card.Footer>
-                        </Card>
+                    <Card className="product-card">
+                        <Card.Body>
+                        <Card.Title className="card-title">Tech</Card.Title>
+                        <Card.Text>
+                        All about my product. All about my product. All about my product. All about my product.
+                        </Card.Text>
+                        </Card.Body>
+                        <Button className="plan-button">View plan</Button>
+                        <Card.Footer>
+                        <small className="text-muted">added 2/9/2021</small>
+                        </Card.Footer>
+                    </Card>
+                    <Card className="product-card">
+                        <Card.Body>
+                        <Card.Title className="card-title">Tech</Card.Title>
+                        <Card.Text>
+                        All about my product. All about my product. All about my product. All about my product.
+                        </Card.Text>
+                        </Card.Body>
+                        <Button className="plan-button">View plan</Button>
+                        <Card.Footer>
+                        <small className="text-muted">added 2/9/2021</small>
+                        </Card.Footer>
+                    </Card>
                     </CardGroup>
     )
 }

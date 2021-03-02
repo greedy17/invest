@@ -18,6 +18,7 @@
 .display-card{
     background-color: #276955 !important;
     color: white;
+    margin: 1em;
 }
 .role-color{
     color: #9fecd5 !important;
@@ -29,4 +30,8 @@
 .space:hover{
     background-color: white !important;
     color: #276955 !important;
+}
+.scroll-box{
+    height: 66vh;
+    overflow-y: scroll;
 }

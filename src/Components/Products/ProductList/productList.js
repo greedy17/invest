@@ -7,7 +7,7 @@ const ProductList = ({productList=[]}) => {
       { productList.map((data,index) => {
           if (data) {
             return (
-            <div className="container">
+            <div key={data._id} className="container">
                 <Card className="display-card">
                     <Card.Header as="h5">{data.name} <span className="role-color">({data.category})</span></Card.Header>
                     <Card.Body>

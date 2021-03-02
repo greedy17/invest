@@ -44,23 +44,26 @@ const NavBar = props => {
     return(
         <div>
             <Navbar sticky="top" className="navbar-background" variant="light">
-            <Navbar.Brand>
-            <Link to="/">   
+            <Navbar.Brand>  
             <img
                 src={whiteLogo}
                 width="140"
                 height="55"
                 className="d-inline-block align-top"
                 alt="invest logo"
-            />
-            </Link> 
+            /> 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav>
                 </Nav>
                 <Nav>
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                    <Nav.Link><Link to='/news' className="home-icon"><FaHome/></Link></Nav.Link>
+                    ): null}
+                    {props.loggedInStatus === "NOT_LOGGED_IN" ? (
                     <Nav.Link><Link to='/' className="home-icon"><FaHome/></Link></Nav.Link>
+                    ): null}
                     {props.loggedInStatus === "NOT_LOGGED_IN" ? (
                     <Nav.Link><Link to="/about"><Button className="white" variant="muted">About</Button></Link></Nav.Link>
                     ): null}
@@ -68,27 +71,27 @@ const NavBar = props => {
                     <Nav.Link><Link to="/signup"><Button className="white" variant="muted">Sign up</Button></Link></Nav.Link>
                     ): null}
                     {props.loggedInStatus === "LOGGED_IN" && userInfo.role === "owner" ? (
-                    <Nav.Link><Link to="/investors"><Button className="white" variant="muted">Investors</Button></Link></Nav.Link>
+                    <Nav.Link><Link to="/investors"><Button className="white" variant="muted">Find Investors</Button></Link></Nav.Link>
                     ): null}
                      {props.loggedInStatus === "LOGGED_IN" ? (
                    <Nav.Link><Link to="/messenger"><Button className="white" variant="muted">Messenger <Badge variant="light">0</Badge></Button></Link></Nav.Link>
                     ): null}
                      {props.loggedInStatus === "LOGGED_IN" && userInfo.role === "investor" ? (
-                    <Nav.Link><Link to="/products"><Button className="white" variant="muted">Products</Button></Link></Nav.Link>
+                    <Nav.Link><Link to="/products"><Button className="white" variant="muted">Find Products</Button></Link></Nav.Link>
+                    ): null}
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Link to="/profile"><Button className="white" variant="muted">Profile</Button></Link></Nav.Link>
                     ): null}
                 </Nav>
             </Navbar.Collapse>
                 {props.loggedInStatus === "LOGGED_IN" ? (
-                   <Nav.Link className="welcome-user">Welcome, {userInfo.name}!</Nav.Link>
-                    ): null}
-                {props.loggedInStatus === "LOGGED_IN" ? (
-                   <Nav.Link><Link to="/profile"><Button className="white" variant="muted">Profile</Button></Link></Nav.Link>
+                   <Nav.Link className="welcome-user">Signed in as {userInfo.name}</Nav.Link>
                     ): null}
                 {props.loggedInStatus === "NOT_LOGGED_IN" ? (
                    <Nav.Link><Link to="/login"><Button className="lightgreen" variant="muted">Log in</Button></Link></Nav.Link>
                     ): null}
                 {props.loggedInStatus === "LOGGED_IN" ? (
-                   <Nav.Link><Button className="lightgreen" variant="muted"  onClick={handleSignOut}>Log Out</Button></Nav.Link>
+                   <Nav.Link><Button className="lightgreen" variant="muted"  onClick={handleSignOut}>Sign out</Button></Nav.Link>
                     ): null}
             </Navbar>
         </div>

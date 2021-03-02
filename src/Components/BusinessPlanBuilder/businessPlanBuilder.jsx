@@ -7,6 +7,7 @@ import StepThree from './Steps/stepThree/stepThree';
 import StepFour from './Steps/stepFour/stepFour';
 import StepFive from './Steps/stepFive/stepFive';
 import './businessPlanBuilder.css';
+import NewProduct from './Steps/NewProduct/newProduct';
 
 class BusinessPlanBuilder extends Component {
     constructor(props) {
@@ -51,7 +52,7 @@ class BusinessPlanBuilder extends Component {
   
     handleSubmit = (event) => {
       event.preventDefault();
-      alert('Your product has been added to your profile! Congrats!!')
+      this.props.history.push("/profile");
     }
 
     _next() {
@@ -87,7 +88,7 @@ class BusinessPlanBuilder extends Component {
       
       get nextButton(){
         let currentStep = this.state.currentStep;
-        if(currentStep < 5){
+        if(currentStep < 6){
           return (
             <button 
             className="btn next" 
@@ -105,6 +106,7 @@ class BusinessPlanBuilder extends Component {
             <React.Fragment>
                 <Form onSubmit={this.handleSubmit}>
                 <Introduction next={this.nextButton} currentStep={this.state.currentStep}></Introduction>
+                <NewProduct prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange}/>
                 <StepOne prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} product={this.state.product} customers={this.state.customers} vision={this.state.vision}></StepOne>
                 <StepTwo prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} missionStatement={this.state.missionStatement} principalMembers={this.state.principalMembers} primaryLocation={this.state.primaryLocation}></StepTwo>
                 <StepThree prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} industry={this.state.industry} customerDescription={this.state.customerDescription} companyAdvantages={this.state.companyAdvantages}></StepThree>

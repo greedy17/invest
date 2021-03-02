@@ -30,3 +30,7 @@
     background-color: white !important;
     color: #276955 !important;
 }
+.scroll-box{
+    height: 66vh;
+    overflow-y: scroll;
+}

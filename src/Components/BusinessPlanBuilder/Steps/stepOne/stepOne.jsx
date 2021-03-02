@@ -28,7 +28,7 @@ const StepOne = (props) => {
       </Popover.Content>
     </Popover>);  
 
-    if (props.currentStep !== 1) {
+    if (props.currentStep !== 2) {
       return null
     }else{
       return(

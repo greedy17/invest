@@ -17,7 +17,7 @@ const InvestorList = ({investorList=[]}) => {
                         </Card.Text>
                     <Button className="green space">investments</Button><Button variant="outline-warning">Msg</Button>
                 </Card.Body>
-            </Card>
+                </Card>
             </div>	
              )	
            }

@@ -31,7 +31,9 @@ const Investors = props => {
     return(
         <div>
           <SearchBar input={input} onChange={updateInput}/>
-          <InvestorList investorList={investorList}/>
+          <div className="scroll-box">
+            <InvestorList investorList={investorList}/>
+          </div>
         </div>
     )
 }

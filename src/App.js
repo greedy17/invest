@@ -11,6 +11,7 @@ import Error404 from './Components/Error404/error404';
 import Login from './Components/LogIn/logIn';
 import Investors from './Components/Investors/investors';
 import Products from './Components/Products/products';
+import News from './Components/News/news';
 import './App.css';
 
 
@@ -58,6 +59,7 @@ import './App.css';
       <Route path='/messenger' component={MyNetwork}></Route>
       <Route path='/investors' component={Investors}></Route>
       <Route path='/products' component={Products}></Route>
+      <Route path='/news' component={News}></Route>
       <Route path='*' component={Error404}></Route>
       </Switch>
     </BrowserRouter>  
