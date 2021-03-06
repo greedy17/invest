@@ -1,0 +1,12 @@
+.modal-background {
+    font-weight: bolder !important;
+}
+.modal-footer,.modal-body,.modal-header {
+    color: #9fecd5;
+}
+.modal-header{
+    color:#073f2e;
+}
+.modal-body{
+    background-color: #073f2e;
+}

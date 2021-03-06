@@ -1,7 +1,16 @@
 import React from 'react';
 import {Card,Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+import InvestModal from '../../Modals/investModal';
 
 const ProductList = ({productList=[]}) => {
+  const [modalShow, setModalShow] = React.useState(false);
+  const [myName,setMyName] = React.useState('');
+
+  const whatsMyName = me => {
+    setMyName(me);
+    setModalShow(true)
+  }
     return (
       <>
       { productList.map((data,index) => {
@@ -15,7 +24,12 @@ const ProductList = ({productList=[]}) => {
                         <Card.Text>
                         {data.description}
                         </Card.Text>
-                        <Button className="green space">Msg Owner</Button><Button variant="outline-warning">Invest</Button>
+                        <Link to="/messenger"><Button className="green space">Message owner</Button></Link><Button variant="outline-warning" onClick={() => whatsMyName(data.name)}>Invest</Button>
+                        <InvestModal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        name={myName}
+                        />
                     </Card.Body>
                 </Card>
             </div>  	

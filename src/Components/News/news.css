@@ -1,27 +1,29 @@
 .main-page{
-    background: white !important;
+    background: radial-gradient(#276955,#073f2e) !important;
     display: grid;
     grid-template-columns: 10%,10%,10%,10%,10%,10%,10%,10%,10%,10%;
     grid-template-rows: 20%,20%,20%,20%,20%,20%;
+    color: white;
 }
 .articles{
     background-color:transparent!important;
-    height: 247vh;
+    height: 252vh;
     overflow-y: hidden;
+    padding-top: 0 !important;
 }
 .article-card{
     color: white;
     margin-top: 1.2em;
-    border-radius: .1em !important;
+    border-radius: .5em !important;
     font-weight: bold;
-    background-color: #073f2e !important;
+    background-color: rgba(0, 0, 0, 0.7)!important;
 }
 .featured-card{
-    color: white;
-    height: 30em;
-    border-radius: .1em !important;
+    color: #276955;
+    height: 36em;
+    border-radius: .5em !important;
     font-weight: bold;
-    background-color: #073f2e !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
 }
 .article-button{
     background-color: #073f2e !important;
@@ -29,10 +31,13 @@
     border-radius: .3em !important;
 }
 .featured-button{
-    background-color: #073f2e !important;
+    background-color: #276955 !important;
     border-color: white !important;
     border-radius: .3em !important;
-    margin-top: 10em;
+    margin-top: 2em;
+    font-weight: bolder !important;
+    width: 16%;
+    margin-top: 6em;
 }
 .article-button:hover{
     background-color: white !important;
@@ -50,6 +55,9 @@
     color: #9fecd5;
     font-weight: bolder;
     font-size: 2.5em;
+}
+.featured-title:hover{
+  cursor: pointer;
 }
 .featured-title2{
     color: white;
@@ -70,8 +78,10 @@
 .trending{
     grid-row: 2;
     grid-column: 2/10;
-    background: transparent !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 1.8em !important;
     font-family: 'IBM Plex Sans', sans-serif;
+
 }
 .main-footer{
     grid-column: 1/9;
@@ -84,17 +94,14 @@
 .spacer{
     height: 4em;
 }
-.story-titles{
-    color: #276955;
+.story-date{
+    color:#9fecd5;
+}
+.news-titles{
+    color:#9fecd5;
     font-weight: bolder;
     font-size: 2.5em;
 }
-.story-date{
-    color: #9fecd5;
-}
-.news-title{
-    color: #276955;
-    text-decoration: underline;
-    font-weight: bolder;
-    font-size: 2.25em;
+.text-muted{
+    font-size: larger;
 }
