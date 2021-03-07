@@ -27,15 +27,12 @@ const LogIn = (props) => {
         axios.post(url+'login', loginCredentials)
         .then(res => {
             const token = res.data;
-            console.log(token);
             localStorage.setItem('jwtToken', token);
-  
             setAuthToken(token);
             props.handleSuccessfulLogin();
             props.history.push("/news");
         })
         .catch(err => {
-            console.log(err);
             alert("Invalid email or password!");
             props.handleUnsuccessfulLogin();
         });

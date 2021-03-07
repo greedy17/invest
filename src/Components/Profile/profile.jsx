@@ -10,10 +10,11 @@ import axios from 'axios';
 
 
 const Profile = props => {
+
+    const { values, handleChange} = useForm();
     const userApi = "http://localhost:5000/api/user/users/"
     const [userInfo, setUserInfo] = useState([]);
     const [editShow, setEditShow] = useState(true);
-    const [bio, setBio] = useState('');
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -41,6 +42,7 @@ const Profile = props => {
     },);
 
 const  updateUser = (e) => {
+        e.preventDefault();
 
         var decoded = jwt_decode(token);
         const updatedUrl = userApi + decoded._id;
@@ -49,20 +51,17 @@ const  updateUser = (e) => {
             name: userInfo.name,
             email: userInfo.email,
             password: userInfo.password,
-            bio: userInfo.bio,
-            role: userInfo.role,
-            products: userInfo.products
+            bio: values.bio,
+            role: userInfo.role
         }
 
-        axios.post(updatedUrl, updatedUser)
+        axios.put(updatedUrl, updatedUser)
         .then(res => {
-            console.log(res);
+            showBioEdit();
         })
         .catch(err => console.log(err));
 
     }
-
-const { values, handleSubmit, handleChange } = useForm(updateUser);
     
         return(
             <div>
@@ -92,11 +91,13 @@ const { values, handleSubmit, handleChange } = useForm(updateUser);
                             >
                             <Button className="bio-button" onClick={()=> showBioEdit()} hidden={!editShow}>{userInfo.bio}</Button>
                             </OverlayTrigger>
+                            <Form onSubmit={updateUser}>
                             <Form.Group controlId="bio" hidden={editShow}>
                                 <Form.Label>Edit Bio</Form.Label>
-                                <Form.Control as="textarea" rows={2} />
-                                <Button className="green" onClick={()=> showBioEdit()}>Cancel</Button><Button className="green">Submit</Button>
+                                <Form.Control as="textarea" type="text" rows={2} name="bio" value={values.bio} onChange={handleChange}/>
+                                <Button className="green" onClick={()=> showBioEdit()}>Cancel</Button><Button type="submit" className="green">Submit</Button>
                             </Form.Group>
+                            </Form>
                             </div>
                             
                         </div>
