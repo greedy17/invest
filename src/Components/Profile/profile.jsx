@@ -26,18 +26,18 @@ const Profile = props => {
 
     var token = localStorage.getItem('jwtToken');
     
-    const getUserInfo = () =>{
-        if(token){
-            var decoded = jwt_decode(token);
-            const newUrl = userApi + decoded._id;
-            axios.get(newUrl)
-            .then( res => {
-            setUserInfo(res.data);
-            })
-        }
-    }
 
     useEffect(() => {
+        const getUserInfo = () =>{
+            if(token){
+                var decoded = jwt_decode(token);
+                const newUrl = userApi + decoded._id;
+                axios.get(newUrl)
+                .then( res => {
+                setUserInfo(res.data);
+                })
+            }
+        }
         getUserInfo();
     },);
 
@@ -111,7 +111,7 @@ const  updateUser = (e) => {
                     ): <h1 className="type new-products">My Products</h1>}
 
                     <CurrentUserProducts/>
-                    
+
                     </div>
 
                     <div className="center lorem">

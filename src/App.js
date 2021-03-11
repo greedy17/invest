@@ -6,7 +6,7 @@ import SignUp from './Components/SignUp/signUp';
 import About from './Components/About/about';
 import Profile from './Components/Profile/profile';
 import BusinessPlanBuilder from './Components/BusinessPlanBuilder/businessPlanBuilder';
-import MyNetwork from './Components/MyNetwork/myNetwork';
+import Messenger from './Components/Messenger/messenger';
 import Error404 from './Components/Error404/error404';
 import Login from './Components/LogIn/logIn';
 import Investors from './Components/Investors/investors';
@@ -43,25 +43,25 @@ import './App.css';
         loggedInStatus={loggedInStatus}
         handleSuccessfulLogout={handleSuccessfulLogout}
         />
-      <Switch>
-        <Route exact path='/' component={LandingPage}></Route>
-        <Route
-          path="/login">
-          <Login
-              handleSuccessfulLogin={handleSuccessfulLogin}
-              handleUnsuccessfulLogin={handleUnsuccessfulLogin}
-            />
-         </Route> 
-      <Route path='/signup' component={SignUp}></Route>
-      <Route path='/about' component={About}></Route>
-      {loggedInStatus === "LOGGED_IN" ? (authorizedPages()) : null}
-      <Route path='/businessPlan' component={BusinessPlanBuilder}></Route>
-      <Route path='/messenger' component={MyNetwork}></Route>
-      <Route path='/investors' component={Investors}></Route>
-      <Route path='/products' component={Products}></Route>
-      <Route path='/news' component={News}></Route>
-      <Route path='*' component={Error404}></Route>
-      </Switch>
+        <Switch>
+          <Route exact path='/' component={LandingPage}></Route>
+          <Route
+            path="/login">
+            <Login
+                handleSuccessfulLogin={handleSuccessfulLogin}
+                handleUnsuccessfulLogin={handleUnsuccessfulLogin}
+              />
+          </Route> 
+          <Route path='/signup' component={SignUp}></Route>
+          <Route path='/about' component={About}></Route>
+          {loggedInStatus === "LOGGED_IN" ? (authorizedPages()) : null}
+          <Route path='/businessPlan' component={BusinessPlanBuilder}></Route>
+          <Route path='/messenger' component={Messenger}></Route>
+          <Route path='/investors' component={Investors}></Route>
+          <Route path='/products' component={Products}></Route>
+          <Route path='/news' component={News}></Route>
+          <Route path='*' component={Error404}></Route>
+        </Switch>
     </BrowserRouter>  
   );
 }
