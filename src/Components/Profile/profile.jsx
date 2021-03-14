@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import {Jumbotron,Image,Dropdown,Badge,Button,Tooltip,OverlayTrigger,Form} from 'react-bootstrap';
 import placeholder from '../../assets/images/placeholder.jpeg';
 import CurrentUserProducts from './CurrentUserProducts/currentUserProducts';
+import PicUploader from './PicUploader/picUploader';
 import './profile.css';
 import {Link} from 'react-router-dom';
 import useForm from '../UseForm/useForm';
@@ -67,8 +68,8 @@ const  updateUser = (e) => {
             <div>
                 <Jumbotron className="profile">
                     <div className="bio">
-                        <div>
-                        <Image rounded src={placeholder} height={"170"}></Image>
+                        <div className="uploader">
+                        <PicUploader/>
                         </div>
                         <div className="top">
                             <div className="name">

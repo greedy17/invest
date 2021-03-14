@@ -12,6 +12,7 @@ import Login from './Components/LogIn/logIn';
 import Investors from './Components/Investors/investors';
 import Products from './Components/Products/products';
 import News from './Components/News/news';
+import Inbox from './Components/Messenger/Inbox/inbox';
 import './App.css';
 
 
@@ -60,6 +61,7 @@ import './App.css';
           <Route path='/investors' component={Investors}></Route>
           <Route path='/products' component={Products}></Route>
           <Route path='/news' component={News}></Route>
+          <Route path="/inbox" component={Inbox}/>
           <Route path='*' component={Error404}></Route>
         </Switch>
     </BrowserRouter>  

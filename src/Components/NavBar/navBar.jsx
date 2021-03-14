@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Navbar,Nav,Button,Badge} from 'react-bootstrap';
+import {Navbar,Nav,Button} from 'react-bootstrap';
 import {FaHome} from 'react-icons/fa';
 import {CgLogOut} from 'react-icons/cg';
+import {BsChatSquareFill} from 'react-icons/bs';
 import {Link,withRouter} from 'react-router-dom';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
@@ -74,20 +75,17 @@ const NavBar = props => {
                     {props.loggedInStatus === "LOGGED_IN" && userInfo.role === "owner" ? (
                     <Nav.Link><Link to="/investors"><Button className="white" variant="muted">Find Investors</Button></Link></Nav.Link>
                     ): null}
-                     {props.loggedInStatus === "LOGGED_IN" ? (
-                   <Nav.Link><Link to="/messenger"><Button className="white" variant="muted">Messenger <Badge variant="light">0</Badge></Button></Link></Nav.Link>
-                    ): null}
                      {props.loggedInStatus === "LOGGED_IN" && userInfo.role === "investor" ? (
                     <Nav.Link><Link to="/products"><Button className="white" variant="muted">Find Products</Button></Link></Nav.Link>
                     ): null}
                     {props.loggedInStatus === "LOGGED_IN" ? (
                    <Nav.Link><Link to="/profile"><Button className="white" variant="muted">Profile</Button></Link></Nav.Link>
                     ): null}
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                   <Nav.Link><Link to="/messenger"><Button className="white" variant="muted">Chat <BsChatSquareFill/></Button></Link></Nav.Link>
+                    ): null}
                 </Nav>
             </Navbar.Collapse>
-                {props.loggedInStatus === "LOGGED_IN" ? (
-                   <Nav.Link className="welcome-user">Welcome, {userInfo.name}</Nav.Link>
-                    ): null}
                 {props.loggedInStatus === "NOT_LOGGED_IN" ? (
                    <Nav.Link><Link to="/login"><Button className="lightgreen" variant="muted">Log In</Button></Link></Nav.Link>
                     ): null}

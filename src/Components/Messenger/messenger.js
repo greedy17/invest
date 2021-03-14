@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import Talk from "talkjs";
-import profile from '../../assets/images/profile.png';
+import {Link} from 'react-router-dom';
+//import profile from '../../assets/images/profile.png';
+import {Button} from 'react-bootstrap';
 import placeholder from '../../assets/images/placeholder.jpeg';
 import './messenger.css';
 
@@ -100,11 +102,12 @@ class MyNetwork extends Component {
                     {currentUser &&
                         <div>
                             <picture className="current-user-picture">
-                                <img alt={currentUser.name} src={profile} />
+                                <img alt={currentUser.name} src={placeholder} />
                             </picture>
                             <div className="current-user-info">
                                 <h3>{currentUser.name}</h3>
-                                <p>{currentUser.role}</p>
+                                <p>{currentUser.bio}</p>
+                                <Link to="/inbox"><Button className="start" variant="muted">Inbox</Button></Link>
                             </div>
                         </div>
                     }

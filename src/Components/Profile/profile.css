@@ -99,3 +99,10 @@
     background-color: transparent !important;
     border-color: transparent !important;
 }
+.uploader{
+    height: 200px;
+    width: 200px;
+}
+.uploader:hover{
+    cursor: pointer;
+}
