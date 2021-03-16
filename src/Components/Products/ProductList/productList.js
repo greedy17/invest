@@ -18,13 +18,13 @@ const ProductList = ({productList=[]}) => {
             return (
             <div key={data._id} className="container">
                 <Card className="display-card">
-                    <Card.Header as="h5">{data.name} <span className="role-color">({data.category})</span></Card.Header>
+                    <Card.Header as="h5" className="name-color">{data.name} <span className="role-color">({data.category})</span></Card.Header>
                     <Card.Body>
-                        <Card.Title className="role-color">~ ${data.progress} / ${data.goal} goal~</Card.Title>
+                        <Card.Title className="color-green">~ ${data.progress} / ${data.goal} goal~</Card.Title>
                         <Card.Text>
                         {data.description}
                         </Card.Text>
-                        <Link to="/messenger"><Button className="green space">Message owner</Button></Link><Button variant="outline-warning" onClick={() => whatsMyName(data.name)}>Invest</Button>
+                        <Link to="/messenger"><Button className="product-button">Message Owner</Button></Link><Button className="product-button" onClick={() => whatsMyName(data.name)}>Invest</Button>
                         <InvestModal
                         show={modalShow}
                         onHide={() => setModalShow(false)}

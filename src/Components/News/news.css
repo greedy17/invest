@@ -1,29 +1,7 @@
 .main-page{
-    background: radial-gradient(#276955,#073f2e) !important;
-    display: grid;
-    grid-template-columns: 10%,10%,10%,10%,10%,10%,10%,10%,10%,10%;
-    grid-template-rows: 20%,20%,20%,20%,20%,20%;
-    color: white;
-}
-.articles{
-    background-color:transparent!important;
-    height: 252vh;
-    overflow-y: hidden;
-    padding-top: 0 !important;
-}
-.article-card{
-    color: white;
-    margin-top: 1.2em;
-    border-radius: .5em !important;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.7)!important;
-}
-.featured-card{
-    color: #276955;
-    height: 36em;
-    border-radius: .5em !important;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.7) !important;
+  background: #073f2e;
+  color: white;
+  font-weight: bold;
 }
 .article-button{
     background-color: #073f2e !important;
@@ -51,57 +29,79 @@
     color: #073f2e !important;
     border-radius: .3em !important;
 }
-.featured-title{
-    color: #9fecd5;
+.featured-text{
+    color: #276955;
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 2em;
 }
-.featured-title:hover{
-  cursor: pointer;
+.tip-title{
+  color: #276955;
+  font-weight: bolder;
+  font-size: 4em;
 }
-.featured-title2{
-    color: white;
-    font-weight: bolder;
-    font-size: 2.5em;
-}
-.news-section{
-    grid-row: 2;
-    grid-column: 1;
-}
-.featured{
-    text-align: center;
-    grid-column: 1/10;
-    grid-row: 1;
-    background: transparent !important;
-    margin-right: 1em;
-}
-.trending{
-    grid-row: 2;
-    grid-column: 2/10;
-    background-color: rgba(0, 0, 0, 0.7) !important;
-    border-radius: 1.8em !important;
-    font-family: 'IBM Plex Sans', sans-serif;
-
+.center-featured{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .main-footer{
     grid-column: 1/9;
     width: 99.4vw;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 1);
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.spacer{
-    height: 4em;
+.mart{
+  margin: 3em 2em;
 }
 .story-date{
-    color:#9fecd5;
+    color:#9fecd5 !important;
 }
-.news-titles{
-    color:#9fecd5;
-    font-weight: bolder;
-    font-size: 2.5em;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
 }
-.text-muted{
-    font-size: larger;
+.photo-grid{
+    margin: 0 4em 0 4em;
+    height: 70vh;
+    background: #073f2e !important;
+    box-shadow: 5px 20px 20px rgba(0, 0, 0, .7);
+    overflow-y: scroll;
 }
+.investor-tips{
+    margin: 0 4em 0 4em;
+    height: 70vh;
+    background: #073f2e !important;
+    box-shadow: 5px 20px 20px rgba(0, 0, 0, .7);
+}    
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 100%;
+    max-width: 25%;
+    padding: 0;
+  }
+  
+  .column img {
+    vertical-align: middle;
+    width: 100%;
+  }
+  .column img:hover {
+   cursor: pointer;
+  }
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }

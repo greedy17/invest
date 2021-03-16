@@ -31,7 +31,7 @@ const Products = props => {
     useEffect( ()=> {getProducts()},[]) 
 
     return(
-        <div>
+        <div className="product-background">
           <SearchBar input={input} onChange={updateInput}/>
           <div className="scroll-box">
             <ProductList productList={productList}/>

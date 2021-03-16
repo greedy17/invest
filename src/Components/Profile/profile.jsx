@@ -65,46 +65,48 @@ const  updateUser = (e) => {
     }
     
         return(
-            <div>
+            <div className="profile-side">
+                <div className="profile-background">
                 <Jumbotron className="profile">
                     <div className="bio">
-                        <div className="uploader">
-                        <PicUploader/>
-                        </div>
-                        <div className="top">
-                            <div className="name">
-                                <h3>{userInfo.name} <span className="type">({userInfo.role})</span></h3>
-                                <Dropdown className="notifications">
-                                    <Dropdown.Toggle className="toggle">
-                                        Notifications <Badge variant="light">0</Badge>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item eventKey="1">No notifications at the moment</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                            <div className="uploader">
+                                <PicUploader/>
                             </div>
 
-                            <div className="bio lorem">
-                            <OverlayTrigger
-                                placement="right"
-                                delay={{ show: 250, hide: 400 }}
-                                overlay={renderTooltip}
-                            >
-                            <Button className="bio-button" onClick={()=> showBioEdit()} hidden={!editShow}>{userInfo.bio}</Button>
-                            </OverlayTrigger>
-                            <Form onSubmit={updateUser}>
-                            <Form.Group controlId="bio" hidden={editShow}>
-                                <Form.Label>Edit Bio</Form.Label>
-                                <Form.Control as="textarea" type="text" rows={2} name="bio" value={values.bio} onChange={handleChange}/>
-                                <Button className="green" onClick={()=> showBioEdit()}>Cancel</Button><Button type="submit" className="green">Submit</Button>
-                            </Form.Group>
-                            </Form>
+                            <div className="name">
+                                <div className="left">
+                                    <h3>{userInfo.name} <span className="type">({userInfo.role})</span></h3>
+                                    <Dropdown>
+                                        <Dropdown.Toggle className="toggle">
+                                            Notifications <Badge variant="light">0</Badge>
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item eventKey="1">No notifications at the moment</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </div>
+                               
+
+                                <div className="lorem">
+                                    <OverlayTrigger
+                                        placement="right"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={renderTooltip}
+                                    >
+                                    <Button className="bio-button" onClick={()=> showBioEdit()} hidden={!editShow}>{userInfo.bio}</Button>
+                                    </OverlayTrigger>
+                                    <Form onSubmit={updateUser}>
+                                    <Form.Group controlId="bio" hidden={editShow}>
+                                        <Form.Label>Edit Bio</Form.Label>
+                                        <Form.Control as="textarea" type="text" rows={1} name="bio" value={values.bio} onChange={handleChange}/>
+                                        <Button className="green" onClick={()=> showBioEdit()}>Cancel</Button><Button type="submit" className="green">Submit</Button>
+                                    </Form.Group>
+                                    </Form>
+                                </div> 
                             </div>
-                            
-                        </div>
                     </div>
                 </Jumbotron>
-    
+
                 <Jumbotron className="about">
                     <div className="center product-scroll products">
                     {userInfo.role === "investor" ? (
@@ -122,6 +124,7 @@ const  updateUser = (e) => {
                     </div>
 
                 </Jumbotron>
+            </div>
             </div>
         )
 }

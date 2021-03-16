@@ -1,11 +1,22 @@
+.product-background{
+    background: #073f2e;
+    height: 100vh;
+}
 .bold{
     font-weight: bolder !important;
 }
-.color-white{
-    color: white;
+.color-green{
+    color: #9fecd5;
+}
+.color-grey{
+    color: grey;
+}
+.name-color{
+    color: #073f2e;
+    font-weight: bolder;
 }
 .search-display{
-    background-color: rgba(0, 0, 0, 0.7) !important;
+   background: black;
 }
 .display-list{
     background-color: #073f2e !important;
@@ -18,9 +29,10 @@
 .display-card{
     background-color: #276955 !important;
     color: white;
+    font-weight: bold;
 }
 .role-color{
-    color: #9fecd5 !important;
+    color: #9fecd5!important;
 }
 .space{
     margin-right: 1em;
@@ -33,4 +45,14 @@
 .scroll-box{
     height: 66vh;
     overflow-y: scroll;
+}
+.product-button{
+    width: 10em;
+    height: 2.5em;
+    background-color: transparent !important;
+    color: #073f2e !important;
+    border: 4px solid #073f2e !important;
+    border-radius: 1em !important;
+    font-weight: bold !important;
+    margin: 0 .5em 0 0;
 }
