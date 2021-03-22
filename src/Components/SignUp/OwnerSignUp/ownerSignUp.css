@@ -40,3 +40,12 @@
 .about-me-icon{
     color: white !important;
 }
+.image-size{
+    height: 100px;
+    width: 100px;
+    border: 1px dotted white;
+}
+.upload{
+    border-bottom: 1px solid grey;
+    margin-bottom: 1em;
+}

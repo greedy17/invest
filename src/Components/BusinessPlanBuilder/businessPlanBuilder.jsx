@@ -7,7 +7,6 @@ import StepThree from './Steps/stepThree/stepThree';
 import StepFour from './Steps/stepFour/stepFour';
 import StepFive from './Steps/stepFive/stepFive';
 import './businessPlanBuilder.css';
-import NewProduct from './Steps/NewProduct/newProduct';
 
 class BusinessPlanBuilder extends Component {
     constructor(props) {
@@ -50,10 +49,7 @@ class BusinessPlanBuilder extends Component {
       }) 
     }
   
-    handleSubmit = (event) => {
-      event.preventDefault();
-      this.props.history.push("/profile");
-    }
+  
 
     _next() {
         let currentStep = this.state.currentStep
@@ -100,18 +96,30 @@ class BusinessPlanBuilder extends Component {
         }
         return null;
       }
-  
+
+      myPlan = () => {
+        let plan = [];
+        plan.push(
+          this.state.product, this.state.customers, this.state.vision,
+          this.state.missionStatement, this.state.principalMembers,this.state.primaryLocation,
+          this.state.industry, this.state.customerDescription, this.state.companyAdvantages,
+          this.state.serviceOrProduct, this.state.pricing, this.state.research,
+          this.state.growthStrategy, this.state.communication, this.state.howWillYouSale
+          );
+        
+        this.setState({plan: plan});
+      }
+       
     render(){
         return(
             <React.Fragment>
                 <Form onSubmit={this.handleSubmit}>
                 <Introduction next={this.nextButton} currentStep={this.state.currentStep}></Introduction>
-                <NewProduct prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange}/>
-                <StepOne prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} product={this.state.product} customers={this.state.customers} vision={this.state.vision}></StepOne>
-                <StepTwo prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} missionStatement={this.state.missionStatement} principalMembers={this.state.principalMembers} primaryLocation={this.state.primaryLocation}></StepTwo>
-                <StepThree prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} industry={this.state.industry} customerDescription={this.state.customerDescription} companyAdvantages={this.state.companyAdvantages}></StepThree>
-                <StepFour prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange}  serviceOrProduct={this.state.serviceOrProduct} pricing={this.state.pricing} research={this.state.research}></StepFour>
-                <StepFive prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.state.handleChange} growthStrategy={this.state.growthStrategy}communication={this.state.communication} howWillYouSale={this.state.howWillYouSale}></StepFive>
+                <StepOne prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.handleChange} product={this.state.product} customers={this.state.customers} vision={this.state.vision}></StepOne>
+                <StepTwo prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.handleChange} missionStatement={this.state.missionStatement} principalMembers={this.state.principalMembers} primaryLocation={this.state.primaryLocation}></StepTwo>
+                <StepThree prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.handleChange} industry={this.state.industry} customerDescription={this.state.customerDescription} companyAdvantages={this.state.companyAdvantages}></StepThree>
+                <StepFour prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.handleChange}  serviceOrProduct={this.state.serviceOrProduct} pricing={this.state.pricing} research={this.state.research}></StepFour>
+                <StepFive prev={this.previousButton} next={this.nextButton} currentStep={this.state.currentStep} handleChange={this.handleChange} growthStrategy={this.state.growthStrategy}communication={this.state.communication} howWillYouSale={this.state.howWillYouSale}></StepFive>
                 </Form>
             </React.Fragment>
         )

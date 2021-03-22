@@ -28,7 +28,7 @@ const StepOne = (props) => {
       </Popover.Content>
     </Popover>);  
 
-    if (props.currentStep !== 2) {
+    if (props.currentStep !== 1) {
       return null
     }else{
       return(
@@ -42,7 +42,7 @@ const StepOne = (props) => {
                 <OverlayTrigger trigger="click" placement="left" overlay={productPop}>
                   <Form.Label>Product</Form.Label>
                 </OverlayTrigger>
-                <Form.Control as="textarea" defaultdefaultValue={props.product} onChange={props.handleChange} rows={3} />
+                <Form.Control as="textarea" defaultValue={props.product} onChange={props.handleChange} rows={3} />
               </Form.Group>
 
               <Form.Group controlId="customers">

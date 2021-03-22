@@ -113,5 +113,12 @@
     .inbox{
       height: 100vh;
       background: rgb(0,0,0,.8);
-      padding-top: 2em;
-    }     
+      display: flex;
+      justify-content: flex-start;
+    }
+    .inbox-container{
+      background: #073f2e !important;
+      width: 50vw;
+      padding-bottom: 8em;
+      height: 100vh !important;
+    }    

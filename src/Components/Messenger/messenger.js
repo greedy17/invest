@@ -102,7 +102,7 @@ class MyNetwork extends Component {
                     {currentUser &&
                         <div>
                             <picture className="current-user-picture">
-                                <img alt={currentUser.name} src={placeholder} />
+                                <img alt={currentUser.name} src={currentUser.profileImg} />
                             </picture>
                             <div className="current-user-info">
                                 <h3>{currentUser.name}</h3>
@@ -118,7 +118,7 @@ class MyNetwork extends Component {
                         { this.state.users.map(user => 
                             <li key={user._id} className="user">
                                 <picture className="user-picture">
-                                    <img src={placeholder} alt={`${user.name}`} />
+                                    <img src={user.profileImg} alt={`${user.name}`} />
                                 </picture>
                                 <div className="user-info-container">
                                     <div className="user-info">

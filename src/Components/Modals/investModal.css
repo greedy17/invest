@@ -1,12 +1,9 @@
 .modal-background {
-    font-weight: bolder !important;
+    font-weight: bold !important;
+    font-size: 1.2em;
 }
 .modal-footer,.modal-body,.modal-header {
-    color: #9fecd5;
-}
-.modal-header{
-    color:#073f2e;
-}
-.modal-body{
-    background-color: #073f2e;
+    background-color: white;
+    color: #01553c;
+    font-weight: bolder 
 }

@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import jwt_decode from "jwt-decode";
-import {Jumbotron,Image,Dropdown,Badge,Button,Tooltip,OverlayTrigger,Form} from 'react-bootstrap';
-import placeholder from '../../assets/images/placeholder.jpeg';
+import {Jumbotron,Dropdown,Badge,Button,Tooltip,OverlayTrigger,Form} from 'react-bootstrap';
 import CurrentUserProducts from './CurrentUserProducts/currentUserProducts';
-import PicUploader from './PicUploader/picUploader';
 import './profile.css';
 import {Link} from 'react-router-dom';
 import useForm from '../UseForm/useForm';
@@ -69,10 +67,7 @@ const  updateUser = (e) => {
                 <div className="profile-background">
                 <Jumbotron className="profile">
                     <div className="bio">
-                            <div className="uploader">
-                                <PicUploader/>
-                            </div>
-
+                            <img className="uploader" src={userInfo.profileImg} alt="profile"/>
                             <div className="name">
                                 <div className="left">
                                     <h3>{userInfo.name} <span className="type">({userInfo.role})</span></h3>
@@ -120,7 +115,7 @@ const  updateUser = (e) => {
                     <div className="center lorem">
                     {userInfo.role === "investor" ? (
                     <Button className="add"><Link className="link" to='/products'>Find products</Link></Button>
-                    ): <Button className="add"><Link className="link" to='/businessPlan'>Create new product</Link></Button>}
+                    ): <Button className="add"><Link className="link" to='/addProduct'>Create new product</Link></Button>}
                     </div>
 
                 </Jumbotron>

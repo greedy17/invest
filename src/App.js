@@ -13,8 +13,8 @@ import Investors from './Components/Investors/investors';
 import Products from './Components/Products/products';
 import News from './Components/News/news';
 import Inbox from './Components/Messenger/Inbox/inbox';
+import AddProduct from './Components/AddProduct/addProduct';
 import './App.css';
-
 
 
   const App = () => {
@@ -62,6 +62,7 @@ import './App.css';
           <Route path='/products' component={Products}></Route>
           <Route path='/news' component={News}></Route>
           <Route path="/inbox" component={Inbox}/>
+          <Route path="/addProduct" component={AddProduct}/>
           <Route path='*' component={Error404}></Route>
         </Switch>
     </BrowserRouter>  

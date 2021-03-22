@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Form,Col,Container,Jumbotron,Button} from 'react-bootstrap';
 import {FiUser, FiMail, FiLock} from 'react-icons/fi';
 import './investorSignUp.css';
@@ -7,6 +7,24 @@ import useForm from '../../UseForm/useForm';
 import axios from 'axios';
 
 const InvestorSignUp = (props) => {
+
+    const [image, setImage] = useState('');
+
+    const encodeImage = () => {
+
+        var filesSelected = document.getElementById("pic").files;
+        if (filesSelected.length > 0) {
+          var fileToLoad = filesSelected[0];
+    
+          var fileReader = new FileReader();
+    
+          fileReader.onload = function(fileLoadedEvent) {
+            var srcData = fileLoadedEvent.target.result;
+            setImage(srcData);
+          }
+          fileReader.readAsDataURL(fileToLoad);
+        }
+      }
 
     const  register = (e) => {
 
@@ -18,6 +36,7 @@ const InvestorSignUp = (props) => {
             password: values.password,
             bio: values.bio,
             role: 'investor',
+            profileImg: image
         }
         
         axios.post(url, newUser)
@@ -57,6 +76,12 @@ const InvestorSignUp = (props) => {
                         <Col className="icons">
                         <Form.Control as="textarea" className="field" type="text" name="bio" placeholder="Tell us a little bit about yourself." value={values.bio} onChange={handleChange}/>
                     </Col>
+                </Form.Group>
+                <Form.Group controlId="pic">
+                        <div className="center upload"><h4>Upload Photo</h4></div>
+                        <Col className="icons">
+                        <Form.Control className="field" type="file" name="pic" onChange={encodeImage}/>
+                        </Col>
                 </Form.Group>
                         <div className="center">
                             <Button type="submit" className="create">Create Account</Button>

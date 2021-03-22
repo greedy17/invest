@@ -61,7 +61,7 @@ class Inbox extends Component {
     render() {
         return (
             <div className="inbox">
-                <div style={{height: '800px'}} className="inbox-container" ref={c => this.container = c}>Loading...</div>
+                <div style={{height: '800px', background: '#073f2e'}} className="inbox-container" ref={c => this.container = c}>Loading...</div>
             </div>
         );
     }

@@ -13,7 +13,7 @@ const InvestModal = props => {
       className="modal-background"
     >
       <Modal.Header closeButton className="modal-header">
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title id="contained-modal-title-vcenter" className="modal-title">
           Invest in {props.name}:
         </Modal.Title>
       </Modal.Header>

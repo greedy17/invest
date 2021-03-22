@@ -38,6 +38,7 @@ router.put('/:id', async(req, res) => {
             role: req.body.role,
             products: req.body.products,   
             bio: req.body.bio,
+            profileImg: req.body.profileImg
            },
            {new: true}
         );
@@ -62,6 +63,7 @@ router.post('/', async(req, res) => {
         let user = await User.findOne({email: req.body.email});
         if(user) return res.status(400).send('User already registered.');
 
+    
         const salt = await bcrypt.genSalt(10);
         user = new User({
             name: req.body.name,
@@ -70,6 +72,7 @@ router.post('/', async(req, res) => {
             role: req.body.role,
             products: req.body.products,
             bio: req.body.bio,
+            profileImg: req.body.profileImg
         });
 
         await user.save();
@@ -79,12 +82,24 @@ router.post('/', async(req, res) => {
         return res
         .header('x-auth-token', token)
         .header('access-control-expose-headers', 'x-auth-token')
-        .send({_id: user._id, name: user.name, email: user.email, role: user.role, products: user.products, bio: user.bio});
+        .send({_id: user._id, name: user.name, email: user.email, role: user.role, products: user.products, bio: user.bio, profileImg: user.profileImg});
     } catch(ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
 
+router.delete('/:id', async(req, res) => {
+    try {
+        const user = await User.findByIdAndRemove(req.params.id);
+
+        if(!user)
+        return res.status(400).send(`The user with id "${req.params.id}" does not exist.`);
+
+        return res.send(user);
+    } catch (ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`);
+    }
+});
 
 
 

@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true, maxlength:100, minlength:6},
     role: {type: String},
     products: {type: [productSchema], default: []},
-    bio: {type: String, default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices turpis at dolor fermentum venenatis. Integer efficitur vulputate felis, nec hendrerit lectus faucibus a. Nam eu arcu vel massa condimentum posuere. Integer varius, lectus id ultricies fringilla, lorem elit egestas erat, et suscipit sem massa eu felis. Vestibulum hendrerit, odio a vestibulum aliquam, nisl lorem lobortis lacus, non fringilla diam metus ac nulla."},
+    bio: {type: String, default: "Click me to edit."},
+    profileImg: {type: String},
     date: {type: Date, default: Date.now},
 })
 
@@ -27,7 +28,7 @@ function validateUser(user) {
         password: Joi.string().min(6).max(100).required(),
         role: Joi.string(),
         bio: Joi.string(),
-        //products: Joi.array(),
+        profileImg: Joi.string(),
     });
     return schema.validate(user);
 }
