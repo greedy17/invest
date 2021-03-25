@@ -11,20 +11,24 @@ const AddProduct = props => {
     const [userInfo, setUserInfo] = useState([]);
     const [newProduct, setNewProduct] = useState([]);
     var token = localStorage.getItem('jwtToken');
+    const [editShow, setEditShow] = useState(true);
+
+    const showBioEdit = () => setEditShow(editShow === true ? false: true);
+
+    const getUserInfo = () =>{
+        if(token){
+            var decoded = jwt_decode(token);
+            const newUrl = userApi + decoded._id;
+            axios.get(newUrl)
+            .then( res => {
+            setUserInfo(res.data);
+            })
+        }
+    }
 
     useEffect(() => {
-        const getUserInfo = () =>{
-            if(token){
-                var decoded = jwt_decode(token);
-                const newUrl = userApi + decoded._id;
-                axios.get(newUrl)
-                .then( res => {
-                setUserInfo(res.data);
-                })
-            }
-        }
         getUserInfo();
-    },);
+    },[]);
 
     const myProduct = () => {
 
@@ -42,15 +46,12 @@ const AddProduct = props => {
           .then(res => {
             console.log(res);
             setNewProduct(res.data);
-            updateUser();
-            props.history.push("/profile");
+            showBioEdit();
           })
           .catch(err => console.log(err));
-  
       }
 
-      const  updateUser = (e) => {
-        e.preventDefault();
+      const  updateUser = () => {
 
         var decoded = jwt_decode(token);
         const updatedUrl = userApi + decoded._id;
@@ -59,14 +60,16 @@ const AddProduct = props => {
             name: userInfo.name,
             email: userInfo.email,
             password: userInfo.password,
-            bio: values.bio,
             role: userInfo.role,
-            products: newProduct
+            products: newProduct,
+            bio: userInfo.bio,
+            profileImg: userInfo.profileImg
         }
 
         axios.put(updatedUrl, updatedUser)
         .then(res => {
             console.log(res)
+            props.history.push("/profile");
         })
         .catch(err => console.log(err));
 
@@ -84,7 +87,7 @@ const AddProduct = props => {
                     <p>(You can add your business plan later)</p>
                 </div>
                     <div className="product-space">
-                        <Form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit} hidden={!editShow}>
                             <Form.Group controlId="name">
                                 <Col className="icons">
                                 <Form.Control className="field" type="text" name="name" placeholder="Product name" required={true} onChange={handleChange} value={values.name}/>
@@ -113,7 +116,11 @@ const AddProduct = props => {
                             <div className="center">
                                 <Button className="create" type="submit">Add product</Button>
                             </div>
-                        </Form>    
+                        </Form>
+                        <div hidden={editShow} >
+                        <h3>Are you sure you want to add this product ?</h3>
+                        <Button className="create" onClick={() => updateUser()}>Add</Button> <Button className="create" onClick={() => showBioEdit()}>Cancel</Button>
+                        </div>    
                     </div>
                 </Jumbotron>
     )

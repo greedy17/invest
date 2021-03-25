@@ -5,7 +5,6 @@ import Talk from "talkjs";
 import {Link} from 'react-router-dom';
 //import profile from '../../assets/images/profile.png';
 import {Button} from 'react-bootstrap';
-import placeholder from '../../assets/images/placeholder.jpeg';
 import './messenger.css';
 
 
@@ -31,14 +30,14 @@ class MyNetwork extends Component {
             this.setState({
                 currentUser: res.data
             })
-            console.log(this.state.currentUser);
+            
             })
         };
 
         axios.get(this.userApi)
         .then( res => {
             this.setState({users: res.data})
-            console.log(this.state.users)
+            
         })
     }
 

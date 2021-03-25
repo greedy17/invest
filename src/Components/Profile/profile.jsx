@@ -24,23 +24,24 @@ const Profile = props => {
     const showBioEdit = () => setEditShow(editShow === true ? false: true);
 
     var token = localStorage.getItem('jwtToken');
-    
 
-    useEffect(() => {
-        const getUserInfo = () =>{
-            if(token){
-                var decoded = jwt_decode(token);
-                const newUrl = userApi + decoded._id;
-                axios.get(newUrl)
-                .then( res => {
-                setUserInfo(res.data);
-                })
-            }
+    const getUserInfo = () =>{
+        if(token){
+            var decoded = jwt_decode(token);
+            const newUrl = userApi + decoded._id;
+            axios.get(newUrl)
+            .then( res => {
+            console.log(res.data)    
+            setUserInfo(res.data);
+            })
         }
-        getUserInfo();
-    },);
+    }
+    
+    useEffect(() => {
+       getUserInfo();
+    },[]);
 
-const  updateUser = (e) => {
+    const  updateUser = (e) => {
         e.preventDefault();
 
         var decoded = jwt_decode(token);
@@ -50,8 +51,9 @@ const  updateUser = (e) => {
             name: userInfo.name,
             email: userInfo.email,
             password: userInfo.password,
+            role: userInfo.role,
             bio: values.bio,
-            role: userInfo.role
+            profileImg: userInfo.profileImg
         }
 
         axios.put(updatedUrl, updatedUser)
@@ -103,19 +105,23 @@ const  updateUser = (e) => {
                 </Jumbotron>
 
                 <Jumbotron className="about">
-                    <div className="center product-scroll products">
-                    {userInfo.role === "investor" ? (
-                    <h1 className="type new-products">My Investments</h1>
-                    ): <h1 className="type new-products">My Products</h1>}
 
-                    <CurrentUserProducts/>
+                    <div className="center product-scroll products">
+                        {userInfo.role === "investor" ? (
+                        <h1 className="type new-products">My Investments</h1>
+                        ): <h1 className="type new-products">My Products</h1>}
+                    
+            
+                        {userInfo.products < 1 ? (
+                            <h1 className="white">Nothing to see here... Hit the button below to add a product!</h1>
+                        ): <CurrentUserProducts/>}
 
                     </div>
-
+    
                     <div className="center lorem">
-                    {userInfo.role === "investor" ? (
-                    <Button className="add"><Link className="link" to='/products'>Find products</Link></Button>
-                    ): <Button className="add"><Link className="link" to='/addProduct'>Create new product</Link></Button>}
+                        {userInfo.role === "investor" ? (
+                        <Button className="add"><Link className="link" to='/products'>Find products</Link></Button>
+                        ): <Button className="add"><Link className="link" to='/addProduct'>Create new product</Link></Button>}
                     </div>
 
                 </Jumbotron>

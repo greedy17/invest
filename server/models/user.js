@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     email: {type: String, unique: true, required: true, minlength: 5, maxlength:255},
     password: {type: String, required: true, maxlength:100, minlength:6},
     role: {type: String},
-    products: {type: [productSchema], default: []},
+    products: {type: [productSchema]},
     bio: {type: String, default: "Click me to edit."},
     profileImg: {type: String},
     date: {type: Date, default: Date.now},
@@ -27,6 +27,7 @@ function validateUser(user) {
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(6).max(100).required(),
         role: Joi.string(),
+        products: Joi.object(),
         bio: Joi.string(),
         profileImg: Joi.string(),
     });
