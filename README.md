@@ -1,3 +1,8 @@
+Invest is an online business builder/ product creator app. Built with the creators in mind; anyone with an idea can create an account, build a product or service, and host the product on the site for investors to see. On the other hand, investors can browse products, view business plans and invest! It also includes a "business plan builder" that eleviates the hassle of creating one on your own, and a messenger for communicating with other users.
+
+ Technologies: React, Mongodb, Express, Node, Bootsrap 4, JWT, bash, Bloomberg API, Talkjs
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
