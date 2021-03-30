@@ -3,6 +3,7 @@ Invest is an online business builder/ product creator app. Built with the creato
  Technologies: React, Mongodb, Express, Node, Bootsrap 4, JWT, bash, Bloomberg API, Talkjs
 
 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
